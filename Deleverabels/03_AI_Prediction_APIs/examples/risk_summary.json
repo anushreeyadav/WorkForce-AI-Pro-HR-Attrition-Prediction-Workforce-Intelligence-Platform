@@ -1,0 +1,21 @@
+{
+  "request": {
+    "method": "GET",
+    "path": "/api/ai/attrition/summary",
+    "as": "HR"
+  },
+  "status": 200,
+  "response": {
+    "employees_with_predictions": 13,
+    "by_category": {
+      "LOW": 9,
+      "MEDIUM": 2,
+      "HIGH": 2
+    },
+    "model_versions": [
+      "lr-20261027144456-7b93f10b"
+    ],
+    "latest_prediction_at": "2026-10-27T14:49:04.348904Z",
+    "note": "Latest prediction per active employee. Counts describe model estimates, not outcomes, and must not drive individual employment decisions."
+  }
+}

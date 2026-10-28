@@ -1,0 +1,6 @@
+Command: npm run lint   (cwd frontend; 2026-10-27T20:20:06+05:30)
+
+> frontend@0.0.0 lint
+> oxlint
+
+Exit code: 0

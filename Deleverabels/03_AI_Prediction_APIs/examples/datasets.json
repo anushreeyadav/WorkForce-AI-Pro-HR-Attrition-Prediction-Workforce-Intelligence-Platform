@@ -1,0 +1,42 @@
+{
+  "request": {
+    "method": "GET",
+    "path": "/api/datasets",
+    "as": "HR"
+  },
+  "status": 200,
+  "response": {
+    "items": [
+      {
+        "id": 1,
+        "display_name": "Synthetic attrition training set (demo)",
+        "purpose": "ATTRITION_TRAINING",
+        "created_by_user_id": 1,
+        "created_at": "2026-10-27T14:44:56.321996Z",
+        "archived_at": null,
+        "version_count": 1,
+        "latest_version": {
+          "id": 1,
+          "version_number": 1,
+          "status": "VALIDATED",
+          "sha256": "d3374ec535c116659942e9e849ed21b2422c7c45535bd5e09ac3dc9699d87418",
+          "size_bytes": 29617,
+          "row_count": 600,
+          "column_count": 7,
+          "schema_version": "attrition-features-v1",
+          "training_eligible": true,
+          "validated_at": "2026-10-27T14:44:56.362968Z",
+          "uploaded_by_user_id": 1,
+          "created_at": "2026-10-27T14:44:56.329300Z",
+          "used_by_models": [
+            "lr-20261027144456-7b93f10b"
+          ]
+        }
+      }
+    ],
+    "total": 1,
+    "page": 1,
+    "page_size": 20,
+    "pages": 1
+  }
+}

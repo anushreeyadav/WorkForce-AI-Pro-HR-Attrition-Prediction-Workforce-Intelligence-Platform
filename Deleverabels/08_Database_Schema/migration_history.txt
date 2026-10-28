@@ -1,0 +1,19 @@
+Head: c4e7a91d3f20
+Revisions (oldest first): 16
+
+14cb546c9a5e  <-  base  initial core models: users, departments, employees, audit_logs
+319083e42c0c  <-  14cb546c9a5e  attendance and shifts: shifts, attendance_records
+da1930de632b  <-  319083e42c0c  leave management and notifications: leave_types, leave_policies, leave_requests, leave_balances, notifications
+a28868d7048a  <-  da1930de632b  payroll: salary_components, payroll_profiles, payroll_profile_components, payroll_periods,
+371a76ea7369  <-  a28868d7048a  attrition prediction: attrition_model_versions, attrition_predictions
+66d767384f54  <-  371a76ea7369  dataset registry: datasets, dataset_versions, attrition_model_versions.dataset_version_id
+03f5784d8edc  <-  66d767384f54  risk monitoring: risk_alerts, risk_events
+70dd4dec2e60  <-  03f5784d8edc  workforce snapshots: workforce_snapshots, workforce_snapshot_departments
+87cc35d2de25  <-  70dd4dec2e60  hr interventions: interventions, intervention_events
+a6382858faa9  <-  87cc35d2de25  recommendations: rule-based recommendation review records
+0bc0f8d45e33  <-  a6382858faa9  risk alert escalations: review-deadline escalation history
+818f279b6dde  <-  0bc0f8d45e33  activity feed indexes: index-only, no table or column changes
+0d5f1e6ae076  <-  818f279b6dde  workforce tasks: tasks and task_events
+b647981f350c  <-  0d5f1e6ae076  performance management: cycles, goals, reviews and history
+a0bd1c34f49c  <-  b647981f350c  recommendation engine v2: new enum values and nullable rules-v2 columns on recommendations
+c4e7a91d3f20  <-  a0bd1c34f49c  token revocation: revoked_tokens table and users.token_version

@@ -1,0 +1,682 @@
+ .gitignore                                         |    23 [32m+[m
+ Deleverabels/01_Backend_Source_Code/README.md      |    21 [32m+[m
+ .../01_Backend_Source_Code/backend/.env.example    |   162 [32m+[m
+ .../01_Backend_Source_Code/backend/alembic.ini     |   151 [32m+[m
+ .../01_Backend_Source_Code/backend/alembic/README  |     1 [32m+[m
+ .../01_Backend_Source_Code/backend/alembic/env.py  |    64 [32m+[m
+ .../backend/alembic/script.py.mako                 |    28 [32m+[m
+ ..._10_21_1626-14cb546c9a5e_initial_core_models.py |   104 [32m+[m
+ ...0_26_1240-319083e42c0c_attendance_and_shifts.py |    81 [32m+[m
+ ...930de632b_leave_management_and_notifications.py |   149 [32m+[m
+ .../2026_10_26_1456-a28868d7048a_payroll.py        |   163 [32m+[m
+ ...10_26_1520-371a76ea7369_attrition_prediction.py |    82 [32m+[m
+ ...026_10_26_1609-66d767384f54_dataset_registry.py |    93 [32m+[m
+ ...2026_10_26_1625-03f5784d8edc_risk_monitoring.py |   102 [32m+[m
+ ..._10_26_1745-70dd4dec2e60_workforce_snapshots.py |    73 [32m+[m
+ ...026_10_26_1821-87cc35d2de25_hr_interventions.py |    96 [32m+[m
+ ...2026_10_26_1919-a6382858faa9_recommendations.py |    84 [32m+[m
+ ..._26_2140-0bc0f8d45e33_risk_alert_escalations.py |    50 [32m+[m
+ ...0_26_2322-818f279b6dde_activity_feed_indexes.py |    60 [32m+[m
+ ...2026_10_27_0026-0d5f1e6ae076_workforce_tasks.py |   101 [32m+[m
+ ..._27_0048-b647981f350c_performance_management.py |   166 [32m+[m
+ ...7_0127-a0bd1c34f49c_recommendation_engine_v2.py |    82 [32m+[m
+ ...026_10_27_1700-c4e7a91d3f20_token_revocation.py |    51 [32m+[m
+ .../01_Backend_Source_Code/backend/app/__init__.py |     0
+ .../backend/app/api/__init__.py                    |     0
+ .../backend/app/api/attendance.py                  |   399 [32m+[m
+ .../backend/app/api/attrition.py                   |   284 [32m+[m
+ .../backend/app/api/audit_logs.py                  |   201 [32m+[m
+ .../01_Backend_Source_Code/backend/app/api/auth.py |   178 [32m+[m
+ .../backend/app/api/datasets.py                    |   269 [32m+[m
+ .../backend/app/api/departments.py                 |   180 [32m+[m
+ .../01_Backend_Source_Code/backend/app/api/deps.py |   102 [32m+[m
+ .../backend/app/api/employees.py                   |   181 [32m+[m
+ .../backend/app/api/health.py                      |    26 [32m+[m
+ .../backend/app/api/interventions.py               |   316 [32m+[m
+ .../backend/app/api/leave.py                       |   599 [32m+[m
+ .../backend/app/api/notifications.py               |    47 [32m+[m
+ .../backend/app/api/payroll.py                     |   494 [32m+[m
+ .../backend/app/api/performance.py                 |   751 [32m+[m
+ .../backend/app/api/recommendations.py             |   382 [32m+[m
+ .../backend/app/api/reports.py                     |   294 [32m+[m
+ .../backend/app/api/risk_monitoring.py             |   316 [32m+[m
+ .../backend/app/api/search.py                      |    58 [32m+[m
+ .../backend/app/api/shifts.py                      |   134 [32m+[m
+ .../backend/app/api/tasks.py                       |   340 [32m+[m
+ .../backend/app/api/users.py                       |   143 [32m+[m
+ .../backend/app/api/workforce_activity.py          |   270 [32m+[m
+ .../backend/app/api/workforce_analytics.py         |   337 [32m+[m
+ .../backend/app/core/__init__.py                   |     0
+ .../backend/app/core/config.py                     |   300 [32m+[m
+ .../backend/app/core/database.py                   |    34 [32m+[m
+ .../backend/app/core/permissions.py                |   130 [32m+[m
+ .../backend/app/core/rate_limit.py                 |    72 [32m+[m
+ .../backend/app/core/security.py                   |   133 [32m+[m
+ .../01_Backend_Source_Code/backend/app/main.py     |   127 [32m+[m
+ .../backend/app/models/__init__.py                 |    84 [32m+[m
+ .../backend/app/models/attendance.py               |    71 [32m+[m
+ .../backend/app/models/attrition.py                |    76 [32m+[m
+ .../backend/app/models/audit_log.py                |    57 [32m+[m
+ .../backend/app/models/auth.py                     |    24 [32m+[m
+ .../backend/app/models/base.py                     |    49 [32m+[m
+ .../backend/app/models/dataset.py                  |    64 [32m+[m
+ .../backend/app/models/department.py               |    26 [32m+[m
+ .../backend/app/models/employee.py                 |    58 [32m+[m
+ .../backend/app/models/enums.py                    |   270 [32m+[m
+ .../backend/app/models/intervention.py             |    93 [32m+[m
+ .../backend/app/models/leave.py                    |   188 [32m+[m
+ .../backend/app/models/notification.py             |    27 [32m+[m
+ .../backend/app/models/payroll.py                  |   208 [32m+[m
+ .../backend/app/models/performance.py              |   172 [32m+[m
+ .../backend/app/models/recommendation.py           |    87 [32m+[m
+ .../backend/app/models/risk_monitoring.py          |   116 [32m+[m
+ .../backend/app/models/shift.py                    |    62 [32m+[m
+ .../backend/app/models/task.py                     |    84 [32m+[m
+ .../backend/app/models/user.py                     |    41 [32m+[m
+ .../backend/app/models/workforce.py                |    68 [32m+[m
+ .../backend/app/schemas/__init__.py                |     0
+ .../backend/app/schemas/attendance.py              |   147 [32m+[m
+ .../backend/app/schemas/attrition.py               |   142 [32m+[m
+ .../backend/app/schemas/auth.py                    |    62 [32m+[m
+ .../backend/app/schemas/common.py                  |    60 [32m+[m
+ .../backend/app/schemas/dataset.py                 |    72 [32m+[m
+ .../backend/app/schemas/department.py              |    65 [32m+[m
+ .../backend/app/schemas/employee.py                |   156 [32m+[m
+ .../backend/app/schemas/intervention.py            |   163 [32m+[m
+ .../backend/app/schemas/leave.py                   |   293 [32m+[m
+ .../backend/app/schemas/notification.py            |    37 [32m+[m
+ .../backend/app/schemas/payroll.py                 |   354 [32m+[m
+ .../backend/app/schemas/performance.py             |   333 [32m+[m
+ .../backend/app/schemas/recommendation.py          |   180 [32m+[m
+ .../backend/app/schemas/risk_monitoring.py         |   188 [32m+[m
+ .../backend/app/schemas/shift.py                   |   114 [32m+[m
+ .../backend/app/schemas/task.py                    |   177 [32m+[m
+ .../backend/app/schemas/user.py                    |    50 [32m+[m
+ .../backend/app/schemas/workforce.py               |   106 [32m+[m
+ .../backend/app/services/__init__.py               |     0
+ .../backend/app/services/activity_cursor.py        |    89 [32m+[m
+ .../backend/app/services/activity_feed.py          |   605 [32m+[m
+ .../backend/app/services/alert_sla.py              |   167 [32m+[m
+ .../backend/app/services/attendance_rules.py       |   123 [32m+[m
+ .../backend/app/services/attrition.py              |   226 [32m+[m
+ .../backend/app/services/audit.py                  |    85 [32m+[m
+ .../backend/app/services/audit_catalog.py          |   130 [32m+[m
+ .../backend/app/services/audit_query.py            |   170 [32m+[m
+ .../backend/app/services/dataset_storage.py        |   153 [32m+[m
+ .../backend/app/services/datasets.py               |   175 [32m+[m
+ .../backend/app/services/employee_access.py        |    59 [32m+[m
+ .../backend/app/services/employee_query.py         |    52 [32m+[m
+ .../backend/app/services/global_search.py          |   159 [32m+[m
+ .../backend/app/services/interventions.py          |   143 [32m+[m
+ .../backend/app/services/leave_attendance.py       |    66 [32m+[m
+ .../backend/app/services/leave_balance.py          |   167 [32m+[m
+ .../backend/app/services/leave_calendar.py         |    30 [32m+[m
+ .../backend/app/services/notifications.py          |    63 [32m+[m
+ .../backend/app/services/pagination.py             |    13 [32m+[m
+ .../backend/app/services/payroll.py                |   305 [32m+[m
+ .../backend/app/services/payroll_engine.py         |   162 [32m+[m
+ .../backend/app/services/performance.py            |   181 [32m+[m
+ .../backend/app/services/recommendation_engine.py  |   290 [32m+[m
+ .../backend/app/services/recommendation_rules.py   |   239 [32m+[m
+ .../app/services/recommendation_rules_v2.py        |   332 [32m+[m
+ .../backend/app/services/recommendations.py        |   205 [32m+[m
+ .../backend/app/services/report_export.py          |   270 [32m+[m
+ .../backend/app/services/reports.py                |   216 [32m+[m
+ .../backend/app/services/risk_monitoring.py        |   277 [32m+[m
+ .../backend/app/services/search.py                 |    34 [32m+[m
+ .../backend/app/services/tasks.py                  |   213 [32m+[m
+ .../backend/app/services/workforce_analytics.py    |   340 [32m+[m
+ .../backend/app/services/workforce_math.py         |   180 [32m+[m
+ .../01_Backend_Source_Code/backend/ml/README.md    |   109 [32m+[m
+ .../01_Backend_Source_Code/backend/ml/__init__.py  |     0
+ .../backend/ml/attrition/__init__.py               |     1 [32m+[m
+ .../backend/ml/attrition/artifacts.py              |    88 [32m+[m
+ .../backend/ml/attrition/dataset_validation.py     |   181 [32m+[m
+ .../backend/ml/attrition/features.py               |   159 [32m+[m
+ .../backend/ml/attrition/predictor.py              |    95 [32m+[m
+ .../backend/ml/attrition/training.py               |   140 [32m+[m
+ .../01_Backend_Source_Code/backend/pytest.ini      |     3 [32m+[m
+ .../backend/requirements.txt                       |    20 [32m+[m
+ .../backend/tests/__init__.py                      |     0
+ .../backend/tests/conftest.py                      |   332 [32m+[m
+ .../backend/tests/synthetic_attrition.py           |    30 [32m+[m
+ .../backend/tests/test_account_security.py         |   410 [32m+[m
+ .../backend/tests/test_activity_updates_api.py     |   442 [32m+[m
+ .../backend/tests/test_alert_escalation_api.py     |   411 [32m+[m
+ .../backend/tests/test_alert_sla.py                |    80 [32m+[m
+ .../backend/tests/test_attendance_api.py           |   560 [32m+[m
+ .../backend/tests/test_attendance_rules.py         |   160 [32m+[m
+ .../backend/tests/test_attrition_api.py            |   363 [32m+[m
+ .../backend/tests/test_attrition_ml.py             |   235 [32m+[m
+ .../backend/tests/test_audit_logs_api.py           |   382 [32m+[m
+ .../backend/tests/test_auth_api.py                 |   267 [32m+[m
+ .../backend/tests/test_authorization_matrix.py     |   715 [32m+[m
+ .../backend/tests/test_config.py                   |   271 [32m+[m
+ .../backend/tests/test_dataset_validation.py       |   237 [32m+[m
+ .../backend/tests/test_datasets_api.py             |   335 [32m+[m
+ .../backend/tests/test_db_health.py                |    75 [32m+[m
+ .../backend/tests/test_departments_api.py          |   302 [32m+[m
+ .../backend/tests/test_employees_api.py            |   471 [32m+[m
+ .../backend/tests/test_frontend_contract.py        |   194 [32m+[m
+ .../backend/tests/test_frontend_navigation.py      |    49 [32m+[m
+ .../backend/tests/test_health.py                   |    11 [32m+[m
+ .../backend/tests/test_interventions_api.py        |   387 [32m+[m
+ .../backend/tests/test_leave_calendar.py           |    55 [32m+[m
+ .../backend/tests/test_leave_catalog_api.py        |   228 [32m+[m
+ .../backend/tests/test_leave_requests_api.py       |   676 [32m+[m
+ .../backend/tests/test_migrations.py               |   529 [32m+[m
+ .../backend/tests/test_models.py                   |   382 [32m+[m
+ .../backend/tests/test_no_server_errors.py         |    79 [32m+[m
+ .../backend/tests/test_payroll_api.py              |   610 [32m+[m
+ .../backend/tests/test_payroll_engine.py           |   135 [32m+[m
+ .../backend/tests/test_performance_api.py          |   523 [32m+[m
+ .../backend/tests/test_query_scaling.py            |   200 [32m+[m
+ .../backend/tests/test_rbac.py                     |   102 [32m+[m
+ .../tests/test_recommendation_engine_api.py        |   349 [32m+[m
+ .../backend/tests/test_recommendation_rules.py     |   143 [32m+[m
+ .../backend/tests/test_recommendation_rules_v2.py  |   168 [32m+[m
+ .../backend/tests/test_recommendations_api.py      |   383 [32m+[m
+ .../backend/tests/test_report_export.py            |   144 [32m+[m
+ .../backend/tests/test_reports_api.py              |   322 [32m+[m
+ .../backend/tests/test_risk_monitoring_api.py      |   453 [32m+[m
+ .../backend/tests/test_risk_monitoring_rules.py    |    97 [32m+[m
+ .../backend/tests/test_search_api.py               |   303 [32m+[m
+ .../backend/tests/test_security.py                 |   202 [32m+[m
+ .../backend/tests/test_shifts_api.py               |   171 [32m+[m
+ .../backend/tests/test_tasks_api.py                |   445 [32m+[m
+ .../backend/tests/test_ui_workflows.py             |   251 [32m+[m
+ .../backend/tests/test_workforce_activity_api.py   |   515 [32m+[m
+ .../backend/tests/test_workforce_analytics_api.py  |   378 [32m+[m
+ .../backend/tests/test_workforce_math.py           |   215 [32m+[m
+ .../backend/tests/test_workforce_stability_api.py  |   235 [32m+[m
+ .../01_Backend_Source_Code/database/README.md      |   172 [32m+[m
+ Deleverabels/02_Frontend_Source_Code/README.md     |    21 [32m+[m
+ .../02_Frontend_Source_Code/frontend/.env.example  |     2 [32m+[m
+ .../02_Frontend_Source_Code/frontend/.gitignore    |    24 [32m+[m
+ .../frontend/.oxlintrc.json                        |     8 [32m+[m
+ .../02_Frontend_Source_Code/frontend/README.md     |   108 [32m+[m
+ .../02_Frontend_Source_Code/frontend/index.html    |    13 [32m+[m
+ .../frontend/package-lock.json                     |  2792 [32m+++[m
+ .../02_Frontend_Source_Code/frontend/package.json  |    30 [32m+[m
+ .../frontend/public/favicon.svg                    |     1 [32m+[m
+ .../frontend/public/icons.svg                      |    24 [32m+[m
+ .../02_Frontend_Source_Code/frontend/src/App.jsx   |    70 [32m+[m
+ .../frontend/src/api/client.js                     |   137 [32m+[m
+ .../frontend/src/api/client.test.js                |    41 [32m+[m
+ .../frontend/src/auth/AuthContext.jsx              |    63 [32m+[m
+ .../frontend/src/auth/context.js                   |     9 [32m+[m
+ .../frontend/src/components/AppLayout.jsx          |   129 [32m+[m
+ .../frontend/src/components/BackendStatus.jsx      |    24 [32m+[m
+ .../frontend/src/components/EmployeePicker.jsx     |    24 [32m+[m
+ .../frontend/src/components/Toast.jsx              |    38 [32m+[m
+ .../frontend/src/components/guards.jsx             |    28 [32m+[m
+ .../frontend/src/components/toastContext.js        |     9 [32m+[m
+ .../frontend/src/components/ui.jsx                 |   414 [32m+[m
+ .../frontend/src/hooks/useApi.js                   |    35 [32m+[m
+ .../frontend/src/hooks/useList.js                  |    71 [32m+[m
+ .../02_Frontend_Source_Code/frontend/src/index.css |    20 [32m+[m
+ .../frontend/src/lib/feed.js                       |    35 [32m+[m
+ .../frontend/src/lib/feed.test.js                  |    46 [32m+[m
+ .../frontend/src/lib/format.js                     |    65 [32m+[m
+ .../frontend/src/lib/links.js                      |    25 [32m+[m
+ .../frontend/src/lib/navigation.js                 |    89 [32m+[m
+ .../frontend/src/lib/navigation.test.js            |    44 [32m+[m
+ .../frontend/src/lib/session.js                    |    20 [32m+[m
+ .../frontend/src/lib/session.test.js               |    37 [32m+[m
+ .../02_Frontend_Source_Code/frontend/src/main.jsx  |    10 [32m+[m
+ .../frontend/src/pages/Activity.jsx                |   171 [32m+[m
+ .../frontend/src/pages/Analytics.jsx               |   207 [32m+[m
+ .../frontend/src/pages/Attendance.jsx              |   143 [32m+[m
+ .../frontend/src/pages/Audit.jsx                   |    85 [32m+[m
+ .../frontend/src/pages/Dashboard.jsx               |   281 [32m+[m
+ .../frontend/src/pages/Datasets.jsx                |   156 [32m+[m
+ .../frontend/src/pages/Departments.jsx             |    82 [32m+[m
+ .../frontend/src/pages/Employees.jsx               |   173 [32m+[m
+ .../frontend/src/pages/Interventions.jsx           |   215 [32m+[m
+ .../frontend/src/pages/Leave.jsx                   |   187 [32m+[m
+ .../frontend/src/pages/Login.jsx                   |    68 [32m+[m
+ .../frontend/src/pages/Notifications.jsx           |    59 [32m+[m
+ .../frontend/src/pages/Payroll.jsx                 |   265 [32m+[m
+ .../frontend/src/pages/Performance.jsx             |   470 [32m+[m
+ .../frontend/src/pages/Recommendations.jsx         |   156 [32m+[m
+ .../frontend/src/pages/Reports.jsx                 |    81 [32m+[m
+ .../frontend/src/pages/Risk.jsx                    |   117 [32m+[m
+ .../frontend/src/pages/Search.jsx                  |   100 [32m+[m
+ .../frontend/src/pages/Tasks.jsx                   |   232 [32m+[m
+ .../frontend/vite.config.js                        |    14 [32m+[m
+ Deleverabels/03_AI_Prediction_APIs/AI_API_GUIDE.md |    94 [32m+[m
+ .../examples/dataset_validation_report.json        |    69 [32m+[m
+ .../03_AI_Prediction_APIs/examples/datasets.json   |    42 [32m+[m
+ .../examples/model_status.json                     |   196 [32m+[m
+ .../examples/monitoring_run.json                   |    24 [32m+[m
+ .../examples/predict_batch_with_unknown_id.json    |    72 [32m+[m
+ .../examples/predict_forbidden_for_employee.json   |    11 [32m+[m
+ .../examples/predict_one.json                      |    54 [32m+[m
+ .../examples/prediction_history.json               |   111 [32m+[m
+ .../examples/revalidate_validated_409.json         |    11 [32m+[m
+ .../examples/risk_alerts.json                      |    89 [32m+[m
+ .../examples/risk_summary.json                     |    21 [32m+[m
+ .../examples/train_forbidden_for_hr.json           |    14 [32m+[m
+ .../source/app/api/attrition.py                    |   284 [32m+[m
+ .../source/app/api/datasets.py                     |   269 [32m+[m
+ .../source/app/api/risk_monitoring.py              |   316 [32m+[m
+ .../source/app/models/attrition.py                 |    76 [32m+[m
+ .../source/app/models/dataset.py                   |    64 [32m+[m
+ .../source/app/models/risk_monitoring.py           |   116 [32m+[m
+ .../source/app/schemas/attrition.py                |   142 [32m+[m
+ .../source/app/schemas/dataset.py                  |    72 [32m+[m
+ .../source/app/schemas/risk_monitoring.py          |   188 [32m+[m
+ .../source/app/services/alert_sla.py               |   167 [32m+[m
+ .../source/app/services/attrition.py               |   226 [32m+[m
+ .../source/app/services/dataset_storage.py         |   153 [32m+[m
+ .../source/app/services/datasets.py                |   175 [32m+[m
+ .../source/app/services/risk_monitoring.py         |   277 [32m+[m
+ .../03_AI_Prediction_APIs/source/ml/README.md      |   109 [32m+[m
+ .../source/ml/attrition/__init__.py                |     1 [32m+[m
+ .../source/ml/attrition/artifacts.py               |    88 [32m+[m
+ .../source/ml/attrition/dataset_validation.py      |   181 [32m+[m
+ .../source/ml/attrition/features.py                |   159 [32m+[m
+ .../source/ml/attrition/predictor.py               |    95 [32m+[m
+ .../source/ml/attrition/training.py                |   140 [32m+[m
+ .../source/tests/synthetic_attrition.py            |    30 [32m+[m
+ .../source/tests/test_attrition_api.py             |   363 [32m+[m
+ .../source/tests/test_attrition_ml.py              |   235 [32m+[m
+ .../source/tests/test_dataset_validation.py        |   237 [32m+[m
+ .../source/tests/test_datasets_api.py              |   335 [32m+[m
+ .../04_Workforce_Dashboards/Dashboard_Notes.md     |    23 [32m+[m
+ .../Screenshots/01_main_workforce_dashboard_hr.png |   Bin [31m0[m -> [32m182226[m bytes
+ .../02_department_dashboard_manager.png            |   Bin [31m0[m -> [32m162344[m bytes
+ .../03_employee_self_service_dashboard.png         |   Bin [31m0[m -> [32m74460[m bytes
+ .../Screenshots/04_employee_summary.png            |   Bin [31m0[m -> [32m130360[m bytes
+ .../Screenshots/05_department_summary.png          |   Bin [31m0[m -> [32m83193[m bytes
+ .../Screenshots/06_attendance_summary.png          |   Bin [31m0[m -> [32m182336[m bytes
+ .../Screenshots/07_leave_summary_review_queue.png  |   Bin [31m0[m -> [32m72116[m bytes
+ .../Screenshots/08_attrition_risk_overview.png     |   Bin [31m0[m -> [32m90071[m bytes
+ .../09_stability_forecast_department_analytics.png |   Bin [31m0[m -> [32m191296[m bytes
+ .../Screenshots/10_activity_monitoring_status.png  |   Bin [31m0[m -> [32m213084[m bytes
+ Deleverabels/05_Analytics_Reports/README.md        |    33 [32m+[m
+ ...tment-2_2026-10-21_2026-10-27_20261027-2018.csv |   446 [32m+[m
+ ...tment-2_2026-09-27_2026-10-27_20261027-2018.csv |   150 [32m+[m
+ .../attrition_department-2_20261027-2018.csv       |     2 [32m+[m
+ .../employees_department-2_20261027-2018.csv       |     8 [32m+[m
+ ...tment-2_2026-10-27_2026-12-11_20261027-2018.csv |     3 [32m+[m
+ ...tment-2_2025-11-01_2026-10-27_20261027-2018.csv |    13 [32m+[m
+ ...ization_2026-10-21_2026-10-27_20261027-2018.csv |   891 [32m+[m
+ ...ization_2026-10-21_2026-10-27_20261027-2018.pdf |   Bin [31m0[m -> [32m47447[m bytes
+ ...zation_2026-10-21_2026-10-27_20261027-2018.xlsx |   Bin [31m0[m -> [32m39055[m bytes
+ ...ization_2026-09-27_2026-10-27_20261027-2018.csv |   297 [32m+[m
+ ...ization_2026-09-27_2026-10-27_20261027-2018.pdf |   Bin [31m0[m -> [32m18786[m bytes
+ ...zation_2026-09-27_2026-10-27_20261027-2018.xlsx |   Bin [31m0[m -> [32m16895[m bytes
+ .../attrition_organization_20261027-2018.csv       |     6 [32m+[m
+ .../attrition_organization_20261027-2018.pdf       |   Bin [31m0[m -> [32m1610[m bytes
+ .../attrition_organization_20261027-2018.xlsx      |   Bin [31m0[m -> [32m2782[m bytes
+ ...ization_2026-09-27_2026-10-27_20261027-2018.csv |   146 [32m+[m
+ ...ization_2026-09-27_2026-10-27_20261027-2018.pdf |   Bin [31m0[m -> [32m10193[m bytes
+ .../employees_organization_20261027-2018.csv       |    15 [32m+[m
+ .../employees_organization_20261027-2018.pdf       |   Bin [31m0[m -> [32m1790[m bytes
+ .../employees_organization_20261027-2018.xlsx      |   Bin [31m0[m -> [32m3071[m bytes
+ ...ization_2026-10-27_2026-12-11_20261027-2018.csv |     5 [32m+[m
+ ...ization_2026-10-27_2026-12-11_20261027-2018.pdf |   Bin [31m0[m -> [32m1504[m bytes
+ ...zation_2026-10-27_2026-12-11_20261027-2018.xlsx |   Bin [31m0[m -> [32m2778[m bytes
+ .../payroll_organization_2026-09_20261027-2018.csv |    15 [32m+[m
+ .../payroll_organization_2026-09_20261027-2018.pdf |   Bin [31m0[m -> [32m1916[m bytes
+ ...payroll_organization_2026-09_20261027-2018.xlsx |   Bin [31m0[m -> [32m3274[m bytes
+ ...ization_2025-11-01_2026-10-27_20261027-2018.csv |    13 [32m+[m
+ ...ization_2025-11-01_2026-10-27_20261027-2018.pdf |   Bin [31m0[m -> [32m1713[m bytes
+ ...zation_2025-11-01_2026-10-27_20261027-2018.xlsx |   Bin [31m0[m -> [32m2947[m bytes
+ .../05_Analytics_Reports/report_manifest.json      |   408 [32m+[m
+ .../01_attrition_risk_alerts.png                   |   Bin [31m0[m -> [32m90071[m bytes
+ .../AI_Risk_Monitoring/02_risk_alert_detail.png    |   Bin [31m0[m -> [32m100504[m bytes
+ .../03_datasets_and_model_status_admin.png         |   Bin [31m0[m -> [32m88357[m bytes
+ .../04_risk_page_not_available_to_employee.png     |   Bin [31m0[m -> [32m36510[m bytes
+ .../05_dataset_versions_admin.png                  |   Bin [31m0[m -> [32m93761[m bytes
+ .../01_workforce_analytics_forecast_stability.png  |   Bin [31m0[m -> [32m191296[m bytes
+ .../Attendance_Leave/01_my_attendance_employee.png |   Bin [31m0[m -> [32m146802[m bytes
+ .../02_attendance_team_overview_hr.png             |   Bin [31m0[m -> [32m182336[m bytes
+ .../03_my_leave_requests_employee.png              |   Bin [31m0[m -> [32m53780[m bytes
+ .../04_leave_balances_employee.png                 |   Bin [31m0[m -> [32m46860[m bytes
+ .../05_leave_review_queue_manager.png              |   Bin [31m0[m -> [32m72116[m bytes
+ .../Authentication/01_login_page.png               |   Bin [31m0[m -> [32m19473[m bytes
+ .../02_login_invalid_credentials.png               |   Bin [31m0[m -> [32m22939[m bytes
+ .../03_protected_route_redirects_to_login.png      |   Bin [31m0[m -> [32m19473[m bytes
+ .../Dashboard/01_main_dashboard_hr.png             |   Bin [31m0[m -> [32m182226[m bytes
+ .../02_dashboard_manager_department_scope.png      |   Bin [31m0[m -> [32m162344[m bytes
+ .../03_dashboard_employee_self_service.png         |   Bin [31m0[m -> [32m74460[m bytes
+ .../Employee_Management/01_employee_list.png       |   Bin [31m0[m -> [32m130360[m bytes
+ .../Employee_Management/02_employee_detail.png     |   Bin [31m0[m -> [32m127519[m bytes
+ .../Employee_Management/03_departments.png         |   Bin [31m0[m -> [32m83193[m bytes
+ .../Interventions_Tasks/01_interventions.png       |   Bin [31m0[m -> [32m80248[m bytes
+ .../02_intervention_detail_history.png             |   Bin [31m0[m -> [32m92209[m bytes
+ .../Interventions_Tasks/03_recommendations.png     |   Bin [31m0[m -> [32m92543[m bytes
+ .../Interventions_Tasks/04_tasks.png               |   Bin [31m0[m -> [32m93360[m bytes
+ .../Interventions_Tasks/05_task_detail.png         |   Bin [31m0[m -> [32m91900[m bytes
+ .../Notifications_Search/01_notifications.png      |   Bin [31m0[m -> [32m74629[m bytes
+ .../Notifications_Search/02_global_search.png      |   Bin [31m0[m -> [32m67141[m bytes
+ .../Payroll/01_payroll_periods_and_records.png     |   Bin [31m0[m -> [32m159949[m bytes
+ .../Payroll/02_payroll_record_detail.png           |   Bin [31m0[m -> [32m126574[m bytes
+ .../Payroll/03_my_payslips_employee.png            |   Bin [31m0[m -> [32m45282[m bytes
+ .../Payroll/04_payslip_dialog_employee.png         |   Bin [31m0[m -> [32m70488[m bytes
+ .../Performance_Reviews/01_goals_manager.png       |   Bin [31m0[m -> [32m85423[m bytes
+ .../Performance_Reviews/02_reviews_manager.png     |   Bin [31m0[m -> [32m77250[m bytes
+ .../03_review_detail_reviewer_evaluation.png       |   Bin [31m0[m -> [32m89857[m bytes
+ .../Performance_Reviews/04_review_cycles_hr.png    |   Bin [31m0[m -> [32m69325[m bytes
+ Deleverabels/06_UI_Screenshots_Demo/README.md      |    57 [32m+[m
+ .../01_activity_feed_monitoring_status.png         |   Bin [31m0[m -> [32m213084[m bytes
+ .../Reports_Audit/02_reports_and_exports.png       |   Bin [31m0[m -> [32m151476[m bytes
+ .../Reports_Audit/03_audit_logs.png                |   Bin [31m0[m -> [32m218819[m bytes
+ .../07_API_Documentation/API_DOCUMENTATION.md      |    96 [32m+[m
+ .../07_API_Documentation/endpoint_inventory.md     |   178 [32m+[m
+ .../examples/employee_list_paginated.json          |    55 [32m+[m
+ .../07_API_Documentation/examples/health.json      |    11 [32m+[m
+ .../examples/login_success.json                    |    24 [32m+[m
+ .../examples/login_wrong_password.json             |    15 [32m+[m
+ Deleverabels/07_API_Documentation/examples/me.json |    15 [32m+[m
+ .../examples/missing_token_401.json                |    11 [32m+[m
+ .../examples/out_of_scope_404.json                 |    11 [32m+[m
+ .../examples/report_catalog_manager.json           |   157 [32m+[m
+ .../examples/role_forbidden_403.json               |    11 [32m+[m
+ .../07_API_Documentation/examples/search.json      |    50 [32m+[m
+ .../examples/unknown_filter_422.json               |    23 [32m+[m
+ .../examples/users_admin_list.json                 |    41 [32m+[m
+ .../examples/users_forbidden_for_hr.json           |    11 [32m+[m
+ .../examples/validation_error_422.json             |    23 [32m+[m
+ Deleverabels/07_API_Documentation/openapi.json     | 23118 [32m+++++++++++++++++++[m
+ Deleverabels/08_Database_Schema/DATABASE_SCHEMA.md |    51 [32m+[m
+ Deleverabels/08_Database_Schema/er_diagram.md      |   633 [32m+[m
+ .../08_Database_Schema/migration_history.txt       |    19 [32m+[m
+ Deleverabels/08_Database_Schema/schema_mysql.sql   |  1048 [32m+[m
+ Deleverabels/08_Database_Schema/table_inventory.md |   793 [32m+[m
+ Deleverabels/09_Test_Results/TEST_RESULTS.md       |    47 [32m+[m
+ .../09_Test_Results/raw/alembic_heads_history.txt  |    23 [32m+[m
+ .../09_Test_Results/raw/backend_full_suite.txt     |    42 [32m+[m
+ .../09_Test_Results/raw/frontend_build.txt         |    43 [32m+[m
+ Deleverabels/09_Test_Results/raw/frontend_lint.txt |     6 [32m+[m
+ Deleverabels/09_Test_Results/raw/frontend_test.txt |    36 [32m+[m
+ .../09_Test_Results/raw/test_account_security.txt  |    10 [32m+[m
+ .../09_Test_Results/raw/test_attrition_api.txt     |    10 [32m+[m
+ .../09_Test_Results/raw/test_attrition_ml.txt      |    10 [32m+[m
+ .../raw/test_authorization_matrix.txt              |    14 [32m+[m
+ .../09_Test_Results/raw/test_datasets_api.txt      |    10 [32m+[m
+ .../09_Test_Results/raw/test_frontend_contract.txt |    12 [32m+[m
+ .../raw/test_frontend_navigation.txt               |    10 [32m+[m
+ .../09_Test_Results/raw/test_migrations.txt        |    10 [32m+[m
+ .../09_Test_Results/raw/test_no_server_errors.txt  |    13 [32m+[m
+ .../09_Test_Results/raw/test_query_scaling.txt     |    10 [32m+[m
+ .../09_Test_Results/raw/test_ui_workflows.txt      |    10 [32m+[m
+ Deleverabels/FILE_INVENTORY.md                     |   241 [32m+[m
+ Deleverabels/README.md                             |    69 [32m+[m
+ Deleverabels/project_docs/README.md                |  1837 [32m++[m
+ .../project_docs/docs/DEPLOYMENT_READINESS.md      |   247 [32m+[m
+ .../project_docs/docs/FINAL_PROJECT_REPORT.md      |   217 [32m+[m
+ Deleverabels/project_docs/docs/PERFORMANCE.md      |   132 [32m+[m
+ Deleverabels/project_docs/docs/QA_REPORT.md        |   143 [32m+[m
+ Deleverabels/project_docs/docs/SECURITY_RBAC.md    |   406 [32m+[m
+ Deleverabels/tools/README.md                       |    23 [32m+[m
+ Deleverabels/tools/capture_api_examples.py         |    84 [32m+[m
+ Deleverabels/tools/capture_screenshots.py          |   256 [32m+[m
+ Deleverabels/tools/demo_server.py                  |   306 [32m+[m
+ Deleverabels/tools/generate_docs_artifacts.py      |   101 [32m+[m
+ Deleverabels/tools/generate_reports.py             |    77 [32m+[m
+ Deleverabels/tools/validate_deliverables.py        |   110 [32m+[m
+ README.md                                          |  1835 [32m++[m
+ backend/.env.example                               |   162 [32m+[m
+ backend/alembic.ini                                |   151 [32m+[m
+ backend/alembic/README                             |     1 [32m+[m
+ backend/alembic/env.py                             |    66 [32m+[m
+ backend/alembic/script.py.mako                     |    28 [32m+[m
+ ..._10_21_1626-14cb546c9a5e_initial_core_models.py |    97 [32m+[m
+ ...0_26_1240-319083e42c0c_attendance_and_shifts.py |    78 [32m+[m
+ ...930de632b_leave_management_and_notifications.py |   142 [32m+[m
+ .../2026_10_26_1456-a28868d7048a_payroll.py        |   159 [32m+[m
+ ...10_26_1520-371a76ea7369_attrition_prediction.py |    77 [32m+[m
+ ...026_10_26_1609-66d767384f54_dataset_registry.py |    93 [32m+[m
+ ...2026_10_26_1625-03f5784d8edc_risk_monitoring.py |    95 [32m+[m
+ ..._10_26_1745-70dd4dec2e60_workforce_snapshots.py |    72 [32m+[m
+ ...026_10_26_1821-87cc35d2de25_hr_interventions.py |    91 [32m+[m
+ ...2026_10_26_1919-a6382858faa9_recommendations.py |    78 [32m+[m
+ ..._26_2140-0bc0f8d45e33_risk_alert_escalations.py |    49 [32m+[m
+ ...0_26_2322-818f279b6dde_activity_feed_indexes.py |    60 [32m+[m
+ ...2026_10_27_0026-0d5f1e6ae076_workforce_tasks.py |    95 [32m+[m
+ ..._27_0048-b647981f350c_performance_management.py |   160 [32m+[m
+ ...7_0127-a0bd1c34f49c_recommendation_engine_v2.py |    83 [32m+[m
+ ...026_10_27_1700-c4e7a91d3f20_token_revocation.py |    49 [32m+[m
+ ...200-5b9e2d7c41a8_mysql_datetime_microseconds.py |    84 [32m+[m
+ backend/app/__init__.py                            |     0
+ backend/app/api/__init__.py                        |     0
+ backend/app/api/attendance.py                      |   399 [32m+[m
+ backend/app/api/attrition.py                       |   289 [32m+[m
+ backend/app/api/audit_logs.py                      |   201 [32m+[m
+ backend/app/api/auth.py                            |   233 [32m+[m
+ backend/app/api/datasets.py                        |   269 [32m+[m
+ backend/app/api/departments.py                     |   180 [32m+[m
+ backend/app/api/deps.py                            |   102 [32m+[m
+ backend/app/api/employees.py                       |   181 [32m+[m
+ backend/app/api/health.py                          |    63 [32m+[m
+ backend/app/api/interventions.py                   |   316 [32m+[m
+ backend/app/api/leave.py                           |   599 [32m+[m
+ backend/app/api/notifications.py                   |    47 [32m+[m
+ backend/app/api/payroll.py                         |   494 [32m+[m
+ backend/app/api/performance.py                     |   751 [32m+[m
+ backend/app/api/recommendations.py                 |   382 [32m+[m
+ backend/app/api/reports.py                         |   294 [32m+[m
+ backend/app/api/risk_monitoring.py                 |   316 [32m+[m
+ backend/app/api/search.py                          |    58 [32m+[m
+ backend/app/api/shifts.py                          |   134 [32m+[m
+ backend/app/api/tasks.py                           |   340 [32m+[m
+ backend/app/api/users.py                           |   143 [32m+[m
+ backend/app/api/workforce_activity.py              |   270 [32m+[m
+ backend/app/api/workforce_analytics.py             |   337 [32m+[m
+ backend/app/core/__init__.py                       |     0
+ backend/app/core/config.py                         |   300 [32m+[m
+ backend/app/core/database.py                       |    42 [32m+[m
+ backend/app/core/permissions.py                    |   130 [32m+[m
+ backend/app/core/rate_limit.py                     |    72 [32m+[m
+ backend/app/core/security.py                       |   133 [32m+[m
+ backend/app/main.py                                |   149 [32m+[m
+ backend/app/models/__init__.py                     |    84 [32m+[m
+ backend/app/models/attendance.py                   |    71 [32m+[m
+ backend/app/models/attrition.py                    |    76 [32m+[m
+ backend/app/models/audit_log.py                    |    57 [32m+[m
+ backend/app/models/auth.py                         |    24 [32m+[m
+ backend/app/models/base.py                         |    58 [32m+[m
+ backend/app/models/dataset.py                      |    64 [32m+[m
+ backend/app/models/department.py                   |    26 [32m+[m
+ backend/app/models/employee.py                     |    58 [32m+[m
+ backend/app/models/enums.py                        |   270 [32m+[m
+ backend/app/models/intervention.py                 |    93 [32m+[m
+ backend/app/models/leave.py                        |   188 [32m+[m
+ backend/app/models/notification.py                 |    27 [32m+[m
+ backend/app/models/payroll.py                      |   208 [32m+[m
+ backend/app/models/performance.py                  |   172 [32m+[m
+ backend/app/models/recommendation.py               |    87 [32m+[m
+ backend/app/models/risk_monitoring.py              |   116 [32m+[m
+ backend/app/models/shift.py                        |    62 [32m+[m
+ backend/app/models/task.py                         |    84 [32m+[m
+ backend/app/models/user.py                         |    41 [32m+[m
+ backend/app/models/workforce.py                    |    68 [32m+[m
+ backend/app/schemas/__init__.py                    |     0
+ backend/app/schemas/attendance.py                  |   147 [32m+[m
+ backend/app/schemas/attrition.py                   |   142 [32m+[m
+ backend/app/schemas/auth.py                        |    73 [32m+[m
+ backend/app/schemas/common.py                      |    60 [32m+[m
+ backend/app/schemas/dataset.py                     |    72 [32m+[m
+ backend/app/schemas/department.py                  |    65 [32m+[m
+ backend/app/schemas/employee.py                    |   156 [32m+[m
+ backend/app/schemas/intervention.py                |   163 [32m+[m
+ backend/app/schemas/leave.py                       |   293 [32m+[m
+ backend/app/schemas/notification.py                |    37 [32m+[m
+ backend/app/schemas/payroll.py                     |   354 [32m+[m
+ backend/app/schemas/performance.py                 |   333 [32m+[m
+ backend/app/schemas/recommendation.py              |   180 [32m+[m
+ backend/app/schemas/risk_monitoring.py             |   188 [32m+[m
+ backend/app/schemas/shift.py                       |   114 [32m+[m
+ backend/app/schemas/task.py                        |   177 [32m+[m
+ backend/app/schemas/user.py                        |    50 [32m+[m
+ backend/app/schemas/workforce.py                   |   106 [32m+[m
+ backend/app/services/__init__.py                   |     0
+ backend/app/services/activity_cursor.py            |    89 [32m+[m
+ backend/app/services/activity_feed.py              |   605 [32m+[m
+ backend/app/services/alert_sla.py                  |   167 [32m+[m
+ backend/app/services/attendance_rules.py           |   123 [32m+[m
+ backend/app/services/attrition.py                  |   257 [32m+[m
+ backend/app/services/audit.py                      |    85 [32m+[m
+ backend/app/services/audit_catalog.py              |   133 [32m+[m
+ backend/app/services/audit_query.py                |   170 [32m+[m
+ backend/app/services/dataset_storage.py            |   153 [32m+[m
+ backend/app/services/datasets.py                   |   175 [32m+[m
+ backend/app/services/employee_access.py            |    59 [32m+[m
+ backend/app/services/employee_query.py             |    52 [32m+[m
+ backend/app/services/global_search.py              |   159 [32m+[m
+ backend/app/services/interventions.py              |   143 [32m+[m
+ backend/app/services/leave_attendance.py           |    66 [32m+[m
+ backend/app/services/leave_balance.py              |   167 [32m+[m
+ backend/app/services/leave_calendar.py             |    30 [32m+[m
+ backend/app/services/notifications.py              |    63 [32m+[m
+ backend/app/services/pagination.py                 |    13 [32m+[m
+ backend/app/services/payroll.py                    |   305 [32m+[m
+ backend/app/services/payroll_engine.py             |   162 [32m+[m
+ backend/app/services/performance.py                |   181 [32m+[m
+ backend/app/services/recommendation_engine.py      |   290 [32m+[m
+ backend/app/services/recommendation_rules.py       |   239 [32m+[m
+ backend/app/services/recommendation_rules_v2.py    |   332 [32m+[m
+ backend/app/services/recommendations.py            |   205 [32m+[m
+ backend/app/services/report_export.py              |   270 [32m+[m
+ backend/app/services/reports.py                    |   216 [32m+[m
+ backend/app/services/risk_monitoring.py            |   277 [32m+[m
+ backend/app/services/search.py                     |    34 [32m+[m
+ backend/app/services/tasks.py                      |   213 [32m+[m
+ backend/app/services/workforce_analytics.py        |   340 [32m+[m
+ backend/app/services/workforce_math.py             |   180 [32m+[m
+ backend/ml/README.md                               |   109 [32m+[m
+ backend/ml/__init__.py                             |     0
+ backend/ml/attrition/__init__.py                   |     1 [32m+[m
+ backend/ml/attrition/artifacts.py                  |    88 [32m+[m
+ backend/ml/attrition/dataset_validation.py         |   181 [32m+[m
+ backend/ml/attrition/features.py                   |   159 [32m+[m
+ backend/ml/attrition/predictor.py                  |    95 [32m+[m
+ backend/ml/attrition/training.py                   |   186 [32m+[m
+ backend/ml/models/.gitkeep                         |     0
+ backend/pytest.ini                                 |     3 [32m+[m
+ backend/requirements.txt                           |    20 [32m+[m
+ backend/tests/__init__.py                          |     0
+ backend/tests/conftest.py                          |   404 [32m+[m
+ backend/tests/mysql_guard.py                       |    91 [32m+[m
+ backend/tests/synthetic_attrition.py               |    30 [32m+[m
+ backend/tests/test_account_security.py             |   410 [32m+[m
+ backend/tests/test_activity_updates_api.py         |   442 [32m+[m
+ backend/tests/test_alert_escalation_api.py         |   411 [32m+[m
+ backend/tests/test_alert_sla.py                    |    80 [32m+[m
+ backend/tests/test_attendance_api.py               |   560 [32m+[m
+ backend/tests/test_attendance_rules.py             |   160 [32m+[m
+ backend/tests/test_attrition_api.py                |   417 [32m+[m
+ backend/tests/test_attrition_ml.py                 |   259 [32m+[m
+ backend/tests/test_audit_logs_api.py               |   382 [32m+[m
+ backend/tests/test_auth_api.py                     |   267 [32m+[m
+ backend/tests/test_authorization_matrix.py         |   718 [32m+[m
+ backend/tests/test_config.py                       |   271 [32m+[m
+ backend/tests/test_dataset_validation.py           |   237 [32m+[m
+ backend/tests/test_datasets_api.py                 |   335 [32m+[m
+ backend/tests/test_db_health.py                    |    75 [32m+[m
+ backend/tests/test_departments_api.py              |   302 [32m+[m
+ backend/tests/test_employees_api.py                |   471 [32m+[m
+ backend/tests/test_frontend_contract.py            |   194 [32m+[m
+ backend/tests/test_frontend_navigation.py          |    49 [32m+[m
+ backend/tests/test_health.py                       |    11 [32m+[m
+ backend/tests/test_interventions_api.py            |   388 [32m+[m
+ backend/tests/test_leave_calendar.py               |    55 [32m+[m
+ backend/tests/test_leave_catalog_api.py            |   228 [32m+[m
+ backend/tests/test_leave_requests_api.py           |   675 [32m+[m
+ backend/tests/test_migrations.py                   |   593 [32m+[m
+ backend/tests/test_models.py                       |   383 [32m+[m
+ backend/tests/test_mysql_concurrency.py            |   316 [32m+[m
+ backend/tests/test_no_server_errors.py             |    79 [32m+[m
+ backend/tests/test_payroll_api.py                  |   609 [32m+[m
+ backend/tests/test_payroll_engine.py               |   135 [32m+[m
+ backend/tests/test_performance_api.py              |   523 [32m+[m
+ backend/tests/test_production_hardening.py         |   167 [32m+[m
+ backend/tests/test_query_scaling.py                |   200 [32m+[m
+ backend/tests/test_rbac.py                         |   102 [32m+[m
+ backend/tests/test_recommendation_engine_api.py    |   349 [32m+[m
+ backend/tests/test_recommendation_rules.py         |   143 [32m+[m
+ backend/tests/test_recommendation_rules_v2.py      |   168 [32m+[m
+ backend/tests/test_recommendations_api.py          |   384 [32m+[m
+ backend/tests/test_report_export.py                |   144 [32m+[m
+ backend/tests/test_reports_api.py                  |   322 [32m+[m
+ backend/tests/test_risk_monitoring_api.py          |   454 [32m+[m
+ backend/tests/test_risk_monitoring_rules.py        |    97 [32m+[m
+ backend/tests/test_search_api.py                   |   303 [32m+[m
+ backend/tests/test_security.py                     |   202 [32m+[m
+ backend/tests/test_shifts_api.py                   |   171 [32m+[m
+ backend/tests/test_tasks_api.py                    |   446 [32m+[m
+ backend/tests/test_ui_workflows.py                 |   251 [32m+[m
+ backend/tests/test_workforce_activity_api.py       |   515 [32m+[m
+ backend/tests/test_workforce_analytics_api.py      |   379 [32m+[m
+ backend/tests/test_workforce_math.py               |   215 [32m+[m
+ backend/tests/test_workforce_stability_api.py      |   235 [32m+[m
+ database/README.md                                 |   172 [32m+[m
+ docs/DEPLOYMENT_READINESS.md                       |   245 [32m+[m
+ docs/FINAL_PROJECT_REPORT.md                       |   215 [32m+[m
+ docs/PERFORMANCE.md                                |   130 [32m+[m
+ docs/QA_REPORT.md                                  |   141 [32m+[m
+ docs/SECURITY_RBAC.md                              |   404 [32m+[m
+ .../mysql/01_migrations_mysql_roundtrip.txt        |    94 [32m+[m
+ .../mysql/02_datetime6_upgrade_roundtrip.txt       |    29 [32m+[m
+ .../03_concurrency_before_fix_repeatable_read.txt  |    14 [32m+[m
+ .../04_concurrency_after_fix_read_committed.txt    |    68 [32m+[m
+ frontend/.env.example                              |     2 [32m+[m
+ frontend/.gitignore                                |    24 [32m+[m
+ frontend/.oxlintrc.json                            |     8 [32m+[m
+ frontend/README.md                                 |   108 [32m+[m
+ frontend/index.html                                |    13 [32m+[m
+ frontend/package-lock.json                         |  2792 [32m+++[m
+ frontend/package.json                              |    30 [32m+[m
+ frontend/public/favicon.svg                        |     1 [32m+[m
+ frontend/public/icons.svg                          |    24 [32m+[m
+ frontend/src/App.jsx                               |    70 [32m+[m
+ frontend/src/api/client.js                         |   138 [32m+[m
+ frontend/src/api/client.test.js                    |    41 [32m+[m
+ frontend/src/auth/AuthContext.jsx                  |    73 [32m+[m
+ frontend/src/auth/context.js                       |     9 [32m+[m
+ frontend/src/components/AppLayout.jsx              |   136 [32m+[m
+ frontend/src/components/BackendStatus.jsx          |    24 [32m+[m
+ frontend/src/components/ChangePassword.jsx         |    53 [32m+[m
+ frontend/src/components/EmployeePicker.jsx         |    24 [32m+[m
+ frontend/src/components/Toast.jsx                  |    38 [32m+[m
+ frontend/src/components/guards.jsx                 |    28 [32m+[m
+ frontend/src/components/toastContext.js            |     9 [32m+[m
+ frontend/src/components/ui.jsx                     |   414 [32m+[m
+ frontend/src/hooks/useApi.js                       |    35 [32m+[m
+ frontend/src/hooks/useList.js                      |    71 [32m+[m
+ frontend/src/index.css                             |    20 [32m+[m
+ frontend/src/lib/feed.js                           |    35 [32m+[m
+ frontend/src/lib/feed.test.js                      |    46 [32m+[m
+ frontend/src/lib/format.js                         |    65 [32m+[m
+ frontend/src/lib/links.js                          |    25 [32m+[m
+ frontend/src/lib/navigation.js                     |    89 [32m+[m
+ frontend/src/lib/navigation.test.js                |    44 [32m+[m
+ frontend/src/lib/session.js                        |    20 [32m+[m
+ frontend/src/lib/session.test.js                   |    37 [32m+[m
+ frontend/src/main.jsx                              |    10 [32m+[m
+ frontend/src/pages/Activity.jsx                    |   171 [32m+[m
+ frontend/src/pages/Analytics.jsx                   |   207 [32m+[m
+ frontend/src/pages/Attendance.jsx                  |   143 [32m+[m
+ frontend/src/pages/Audit.jsx                       |    85 [32m+[m
+ frontend/src/pages/Dashboard.jsx                   |   281 [32m+[m
+ frontend/src/pages/Datasets.jsx                    |   156 [32m+[m
+ frontend/src/pages/Departments.jsx                 |    82 [32m+[m
+ frontend/src/pages/Employees.jsx                   |   173 [32m+[m
+ frontend/src/pages/Interventions.jsx               |   215 [32m+[m
+ frontend/src/pages/Leave.jsx                       |   187 [32m+[m
+ frontend/src/pages/Login.jsx                       |    68 [32m+[m
+ frontend/src/pages/Notifications.jsx               |    59 [32m+[m
+ frontend/src/pages/Payroll.jsx                     |   265 [32m+[m
+ frontend/src/pages/Performance.jsx                 |   470 [32m+[m
+ frontend/src/pages/Recommendations.jsx             |   156 [32m+[m
+ frontend/src/pages/Reports.jsx                     |    81 [32m+[m
+ frontend/src/pages/Risk.jsx                        |   117 [32m+[m
+ frontend/src/pages/Search.jsx                      |   100 [32m+[m
+ frontend/src/pages/Tasks.jsx                       |   232 [32m+[m
+ frontend/vite.config.js                            |    39 [32m+[m
+ qa/loadtest.py                                     |   206 [32m+[m
+ qa/local_server.py                                 |   244 [32m+[m
+ 681 files changed, 130251 insertions(+)

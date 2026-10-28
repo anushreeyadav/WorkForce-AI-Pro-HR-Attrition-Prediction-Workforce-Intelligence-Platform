@@ -1,0 +1,11 @@
+{
+  "request": {
+    "method": "POST",
+    "path": "/api/datasets/1/validate",
+    "as": "ADMIN"
+  },
+  "status": 409,
+  "response": {
+    "detail": "A VALIDATED version cannot be revalidated against the same feature schema"
+  }
+}

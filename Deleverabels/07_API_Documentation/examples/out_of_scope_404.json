@@ -1,0 +1,11 @@
+{
+  "request": {
+    "method": "GET",
+    "path": "/api/employees/1",
+    "as": "MANAGER"
+  },
+  "status": 404,
+  "response": {
+    "detail": "Employee not found"
+  }
+}

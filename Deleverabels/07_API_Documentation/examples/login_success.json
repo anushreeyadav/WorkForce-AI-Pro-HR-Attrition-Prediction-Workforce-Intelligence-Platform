@@ -1,0 +1,24 @@
+{
+  "request": {
+    "method": "POST",
+    "path": "/api/auth/login",
+    "as": "anonymous",
+    "json": {
+      "email": "hr@example.com",
+      "password": "<demo password>"
+    }
+  },
+  "status": 200,
+  "response": {
+    "access_token": "<redacted>",
+    "token_type": "bearer",
+    "expires_in": 14400,
+    "user": {
+      "id": 2,
+      "full_name": "Hannah HR (demo)",
+      "email": "hr@example.com",
+      "role": "HR",
+      "is_active": true
+    }
+  }
+}

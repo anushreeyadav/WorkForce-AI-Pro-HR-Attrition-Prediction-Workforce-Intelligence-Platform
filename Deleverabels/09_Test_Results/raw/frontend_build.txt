@@ -1,0 +1,43 @@
+Command: npm run build   (cwd frontend; 2026-10-27T20:20:07+05:30)
+
+> frontend@0.0.0 build
+> vite build
+
+vite v8.3.5 building client environment for production...
+transforming...
+✓ 2605 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                            0.46 kB │ gzip:   0.30 kB
+dist/assets/index-B5Z8z8L5.css            29.36 kB │ gzip:   6.45 kB
+dist/assets/check-CV5K1ijz.js              0.15 kB │ gzip:   0.15 kB
+dist/assets/plus-EtsdsVfG.js               0.18 kB │ gzip:   0.16 kB
+dist/assets/download-CRYPOS-L.js           0.26 kB │ gzip:   0.21 kB
+dist/assets/pencil-BgRH9u0W.js             0.30 kB │ gzip:   0.24 kB
+dist/assets/links-C_MyH6hX.js              0.65 kB │ gzip:   0.32 kB
+dist/assets/useApi-Dh1wg-hw.js             0.80 kB │ gzip:   0.47 kB
+dist/assets/EmployeePicker-Cj5nD3ZN.js     0.87 kB │ gzip:   0.57 kB
+dist/assets/useList-CaLYZC_5.js            0.99 kB │ gzip:   0.52 kB
+dist/assets/Notifications-DW7BDIv8.js      2.46 kB │ gzip:   1.22 kB
+dist/assets/Reports-DKvH953z.js            2.99 kB │ gzip:   1.36 kB
+dist/assets/Search-BRI7wuEg.js             3.58 kB │ gzip:   1.66 kB
+dist/assets/Departments-DZHfWA-G.js        3.65 kB │ gzip:   1.58 kB
+dist/assets/Audit-i-ZvxMUw.js              3.83 kB │ gzip:   1.74 kB
+dist/assets/Attendance-BUHR-pvK.js         5.76 kB │ gzip:   2.27 kB
+dist/assets/Risk-DIBcWXRj.js               5.80 kB │ gzip:   2.29 kB
+dist/assets/Activity-DkgQapol.js           7.46 kB │ gzip:   3.00 kB
+dist/assets/Recommendations-Bg3VA-Dz.js    7.60 kB │ gzip:   2.93 kB
+dist/assets/Employees-BUoCA59l.js          7.99 kB │ gzip:   3.13 kB
+dist/assets/Leave-Cwd_ZUoD.js              8.60 kB │ gzip:   2.98 kB
+dist/assets/Datasets-Bkou2rsy.js           8.73 kB │ gzip:   3.30 kB
+dist/assets/Interventions-DxaII5hO.js     10.45 kB │ gzip:   3.65 kB
+dist/assets/Dashboard-D3H6rwI3.js         10.91 kB │ gzip:   3.48 kB
+dist/assets/Tasks-T9czSm_S.js             11.19 kB │ gzip:   3.99 kB
+dist/assets/Payroll-Ckq7Lyne.js           13.63 kB │ gzip:   4.30 kB
+dist/assets/Analytics-DBfDPKKo.js         23.64 kB │ gzip:   7.93 kB
+dist/assets/Performance-Gs8Rc3sT.js       24.59 kB │ gzip:   6.62 kB
+dist/assets/index-CHsxd-vA.js            356.55 kB │ gzip: 115.64 kB
+dist/assets/CartesianChart-BNZ_BUkM.js   373.12 kB │ gzip: 106.86 kB
+
+✓ built in 804ms
+Exit code: 0

@@ -1,0 +1,36 @@
+Command: npm run test   (cwd frontend; 2026-10-27T20:20:05+05:30)
+
+> frontend@0.0.0 test
+> node --test "src/**/*.test.js"
+
+✔ network failures and timeouts are explained, not shown as empty data (0.8328ms)
+✔ each HTTP status has a clear, non-technical message (0.2155ms)
+✔ server errors never show internal details (0.1664ms)
+✔ validation errors are listed by field (0.7727ms)
+✔ status helper (0.1645ms)
+✔ updates accumulate in order and keep the newest cursor (2.7239ms)
+✔ overlapping responses never show an event twice (0.676ms)
+✔ events already on the feed page are not repeated as new (0.3307ms)
+✔ an empty response keeps the previous cursor (1.5246ms)
+✔ expired (410) and invalid (422) cursors are recovered by reloading the feed (0.325ms)
+✔ polling follows the server recommendation but never faster than 15 seconds (0.2435ms)
+✔ 19 pages, each reachable by at least one role (0.9742ms)
+✔ employees see only self-service and shared pages (1.188ms)
+✔ managers get department intelligence but no payroll administration or datasets (0.2469ms)
+✔ HR and ADMIN reach every page (0.2484ms)
+✔ no user or an unknown path has no access (0.2285ms)
+✔ notification and search links only point to pages the role may open (0.1948ms)
+✔ a 401 for the current token ends the session (0.7836ms)
+✔ a late 401 from an earlier session does not sign out the current user (0.1425ms)
+✔ login failures and other statuses never end the session (0.1396ms)
+✔ after login, return only to a page the new account may open (0.3892ms)
+✔ post-login redirects never leave the app (0.2179ms)
+ℹ tests 22
+ℹ suites 0
+ℹ pass 22
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 391.665
+Exit code: 0

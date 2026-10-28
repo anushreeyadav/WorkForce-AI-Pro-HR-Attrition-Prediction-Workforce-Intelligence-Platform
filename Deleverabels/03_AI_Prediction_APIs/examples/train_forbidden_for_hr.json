@@ -1,0 +1,14 @@
+{
+  "request": {
+    "method": "POST",
+    "path": "/api/ai/attrition/train",
+    "as": "HR",
+    "json": {
+      "dataset_id": 1
+    }
+  },
+  "status": 403,
+  "response": {
+    "detail": "You do not have permission to perform this action"
+  }
+}

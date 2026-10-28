@@ -1,0 +1,7 @@
+# npm audit (frontend, package-lock.json), 2026-10-28T04:16:28Z
+found 0 vulnerabilities
+exit: 0
+
+# npm audit --omit=dev (shipped dependencies only)
+found 0 vulnerabilities
+exit: 0

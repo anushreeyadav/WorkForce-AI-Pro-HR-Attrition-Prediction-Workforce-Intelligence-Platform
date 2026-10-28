@@ -1,0 +1,15 @@
+{
+  "request": {
+    "method": "GET",
+    "path": "/api/auth/me",
+    "as": "HR"
+  },
+  "status": 200,
+  "response": {
+    "id": 2,
+    "full_name": "Hannah HR (demo)",
+    "email": "hr@example.com",
+    "role": "HR",
+    "is_active": true
+  }
+}

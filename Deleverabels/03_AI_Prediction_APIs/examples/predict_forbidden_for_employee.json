@@ -1,0 +1,11 @@
+{
+  "request": {
+    "method": "POST",
+    "path": "/api/ai/attrition/predict/13",
+    "as": "EMPLOYEE"
+  },
+  "status": 403,
+  "response": {
+    "detail": "You do not have permission to perform this action"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "request": {
+    "method": "GET",
+    "path": "/api/payroll/periods",
+    "as": "EMPLOYEE"
+  },
+  "status": 403,
+  "response": {
+    "detail": "You do not have permission to perform this action"
+  }
+}

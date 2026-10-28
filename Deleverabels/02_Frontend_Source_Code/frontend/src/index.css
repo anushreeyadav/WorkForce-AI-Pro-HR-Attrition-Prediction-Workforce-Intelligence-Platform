@@ -1,0 +1,20 @@
+@import "tailwindcss";
+
+/* Base typography and focus behaviour for the whole app (design tokens come from Tailwind's slate/blue/teal). */
+@layer base {
+  html {
+    font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    color: var(--color-slate-900);
+    background-color: var(--color-slate-50);
+  }
+  :focus-visible {
+    outline-color: var(--color-blue-600);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

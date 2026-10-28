@@ -1,0 +1,89 @@
+{
+  "request": {
+    "method": "GET",
+    "path": "/api/risk-monitoring/alerts",
+    "as": "HR",
+    "query": {
+      "page_size": 2
+    }
+  },
+  "status": 200,
+  "response": {
+    "items": [
+      {
+        "id": 2,
+        "employee": {
+          "id": 12,
+          "employee_code": "EMP-304",
+          "full_name": "Isla Moreno",
+          "department_id": 3
+        },
+        "trigger_type": "THRESHOLD_CROSSED",
+        "priority": "HIGH",
+        "status": "ACKNOWLEDGED",
+        "latest_prediction_id": 11,
+        "latest_score": "98.55",
+        "latest_category": "HIGH",
+        "model_version": "lr-20261027144456-7b93f10b",
+        "event_count": 1,
+        "first_detected_at": "2026-10-27T14:44:56.799125Z",
+        "last_observed_at": "2026-10-27T14:44:56.799125Z",
+        "assigned_to_user_id": null,
+        "acknowledged_at": "2026-10-27T14:44:56.947039Z",
+        "acknowledged_by_user_id": 2,
+        "resolved_at": null,
+        "resolved_by_user_id": null,
+        "resolution_reason": null,
+        "reviewer_notes": "Reviewed in the weekly HR sync",
+        "created_at": "2026-10-27T14:44:56.810116Z",
+        "updated_at": "2026-10-27T14:44:56.947743Z",
+        "sla": {
+          "state": "ACKNOWLEDGED",
+          "review_window_hours": 24,
+          "review_due_at": "2026-10-28T14:44:56.799125Z",
+          "approaching_at": "2026-10-28T08:44:56.799125Z",
+          "met_deadline": true
+        }
+      },
+      {
+        "id": 1,
+        "employee": {
+          "id": 7,
+          "employee_code": "EMP-206",
+          "full_name": "Elias Brandt",
+          "department_id": 2
+        },
+        "trigger_type": "THRESHOLD_CROSSED",
+        "priority": "HIGH",
+        "status": "OPEN",
+        "latest_prediction_id": 6,
+        "latest_score": "99.82",
+        "latest_category": "HIGH",
+        "model_version": "lr-20261027144456-7b93f10b",
+        "event_count": 1,
+        "first_detected_at": "2026-10-27T14:44:56.799125Z",
+        "last_observed_at": "2026-10-27T14:44:56.799125Z",
+        "assigned_to_user_id": null,
+        "acknowledged_at": null,
+        "acknowledged_by_user_id": null,
+        "resolved_at": null,
+        "resolved_by_user_id": null,
+        "resolution_reason": null,
+        "reviewer_notes": null,
+        "created_at": "2026-10-27T14:44:56.806544Z",
+        "updated_at": "2026-10-27T14:44:56.806548Z",
+        "sla": {
+          "state": "ON_TRACK",
+          "review_window_hours": 24,
+          "review_due_at": "2026-10-28T14:44:56.799125Z",
+          "approaching_at": "2026-10-28T08:44:56.799125Z",
+          "met_deadline": null
+        }
+      }
+    ],
+    "total": 2,
+    "page": 1,
+    "page_size": 2,
+    "pages": 1
+  }
+}

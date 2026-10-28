@@ -1,0 +1,408 @@
+[
+  {
+    "role": "HR",
+    "report": "employees",
+    "file": "organization_hr/employees_organization_20261027-2018.csv",
+    "endpoint": "/reports/employees",
+    "params": {
+      "format": "csv"
+    },
+    "status": 200,
+    "rows": "14",
+    "bytes": 1004,
+    "content_type": "text/csv; charset=utf-8"
+  },
+  {
+    "role": "HR",
+    "report": "employees",
+    "file": "organization_hr/employees_organization_20261027-2018.xlsx",
+    "endpoint": "/reports/employees",
+    "params": {
+      "format": "xlsx"
+    },
+    "status": 200,
+    "rows": "14",
+    "bytes": 3071,
+    "content_type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+  },
+  {
+    "role": "HR",
+    "report": "employees",
+    "file": "organization_hr/employees_organization_20261027-2018.pdf",
+    "endpoint": "/reports/employees",
+    "params": {
+      "format": "pdf"
+    },
+    "status": 200,
+    "rows": "14",
+    "bytes": 1790,
+    "content_type": "application/pdf"
+  },
+  {
+    "role": "HR",
+    "report": "attendance",
+    "file": "organization_hr/attendance_organization_2026-09-27_2026-10-27_20261027-2018.csv",
+    "endpoint": "/reports/attendance",
+    "params": {
+      "format": "csv",
+      "date_from": "2026-09-27",
+      "date_to": "2026-10-27"
+    },
+    "status": 200,
+    "rows": "296",
+    "bytes": 32290,
+    "content_type": "text/csv; charset=utf-8"
+  },
+  {
+    "role": "HR",
+    "report": "attendance",
+    "file": "organization_hr/attendance_organization_2026-09-27_2026-10-27_20261027-2018.xlsx",
+    "endpoint": "/reports/attendance",
+    "params": {
+      "format": "xlsx",
+      "date_from": "2026-09-27",
+      "date_to": "2026-10-27"
+    },
+    "status": 200,
+    "rows": "296",
+    "bytes": 16895,
+    "content_type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+  },
+  {
+    "role": "HR",
+    "report": "attendance",
+    "file": "organization_hr/attendance_organization_2026-09-27_2026-10-27_20261027-2018.pdf",
+    "endpoint": "/reports/attendance",
+    "params": {
+      "format": "pdf",
+      "date_from": "2026-09-27",
+      "date_to": "2026-10-27"
+    },
+    "status": 200,
+    "rows": "296",
+    "bytes": 18786,
+    "content_type": "application/pdf"
+  },
+  {
+    "role": "HR",
+    "report": "leave",
+    "file": "organization_hr/leave_organization_2026-10-27_2026-12-11_20261027-2018.csv",
+    "endpoint": "/reports/leave",
+    "params": {
+      "format": "csv",
+      "date_from": "2026-10-27",
+      "date_to": "2026-12-11"
+    },
+    "status": 200,
+    "rows": "4",
+    "bytes": 567,
+    "content_type": "text/csv; charset=utf-8"
+  },
+  {
+    "role": "HR",
+    "report": "leave",
+    "file": "organization_hr/leave_organization_2026-10-27_2026-12-11_20261027-2018.xlsx",
+    "endpoint": "/reports/leave",
+    "params": {
+      "format": "xlsx",
+      "date_from": "2026-10-27",
+      "date_to": "2026-12-11"
+    },
+    "status": 200,
+    "rows": "4",
+    "bytes": 2778,
+    "content_type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+  },
+  {
+    "role": "HR",
+    "report": "leave",
+    "file": "organization_hr/leave_organization_2026-10-27_2026-12-11_20261027-2018.pdf",
+    "endpoint": "/reports/leave",
+    "params": {
+      "format": "pdf",
+      "date_from": "2026-10-27",
+      "date_to": "2026-12-11"
+    },
+    "status": 200,
+    "rows": "4",
+    "bytes": 1504,
+    "content_type": "application/pdf"
+  },
+  {
+    "role": "HR",
+    "report": "payroll",
+    "file": "organization_hr/payroll_organization_2026-09_20261027-2018.csv",
+    "endpoint": "/reports/payroll",
+    "params": {
+      "format": "csv",
+      "period_id": 1
+    },
+    "status": 200,
+    "rows": "14",
+    "bytes": 1186,
+    "content_type": "text/csv; charset=utf-8"
+  },
+  {
+    "role": "HR",
+    "report": "payroll",
+    "file": "organization_hr/payroll_organization_2026-09_20261027-2018.xlsx",
+    "endpoint": "/reports/payroll",
+    "params": {
+      "format": "xlsx",
+      "period_id": 1
+    },
+    "status": 200,
+    "rows": "14",
+    "bytes": 3274,
+    "content_type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+  },
+  {
+    "role": "HR",
+    "report": "payroll",
+    "file": "organization_hr/payroll_organization_2026-09_20261027-2018.pdf",
+    "endpoint": "/reports/payroll",
+    "params": {
+      "format": "pdf",
+      "period_id": 1
+    },
+    "status": 200,
+    "rows": "14",
+    "bytes": 1916,
+    "content_type": "application/pdf"
+  },
+  {
+    "role": "HR",
+    "report": "attrition",
+    "file": "organization_hr/attrition_organization_20261027-2018.csv",
+    "endpoint": "/reports/attrition",
+    "params": {
+      "format": "csv"
+    },
+    "status": 200,
+    "rows": "5",
+    "bytes": 414,
+    "content_type": "text/csv; charset=utf-8"
+  },
+  {
+    "role": "HR",
+    "report": "attrition",
+    "file": "organization_hr/attrition_organization_20261027-2018.xlsx",
+    "endpoint": "/reports/attrition",
+    "params": {
+      "format": "xlsx"
+    },
+    "status": 200,
+    "rows": "5",
+    "bytes": 2782,
+    "content_type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+  },
+  {
+    "role": "HR",
+    "report": "attrition",
+    "file": "organization_hr/attrition_organization_20261027-2018.pdf",
+    "endpoint": "/reports/attrition",
+    "params": {
+      "format": "pdf"
+    },
+    "status": 200,
+    "rows": "5",
+    "bytes": 1610,
+    "content_type": "application/pdf"
+  },
+  {
+    "role": "HR",
+    "report": "workforce",
+    "file": "organization_hr/workforce_organization_2025-11-01_2026-10-27_20261027-2018.csv",
+    "endpoint": "/reports/workforce",
+    "params": {
+      "format": "csv"
+    },
+    "status": 200,
+    "rows": "12",
+    "bytes": 604,
+    "content_type": "text/csv; charset=utf-8"
+  },
+  {
+    "role": "HR",
+    "report": "workforce",
+    "file": "organization_hr/workforce_organization_2025-11-01_2026-10-27_20261027-2018.xlsx",
+    "endpoint": "/reports/workforce",
+    "params": {
+      "format": "xlsx"
+    },
+    "status": 200,
+    "rows": "12",
+    "bytes": 2947,
+    "content_type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+  },
+  {
+    "role": "HR",
+    "report": "workforce",
+    "file": "organization_hr/workforce_organization_2025-11-01_2026-10-27_20261027-2018.pdf",
+    "endpoint": "/reports/workforce",
+    "params": {
+      "format": "pdf"
+    },
+    "status": 200,
+    "rows": "12",
+    "bytes": 1713,
+    "content_type": "application/pdf"
+  },
+  {
+    "role": "HR",
+    "report": "activity",
+    "file": "organization_hr/activity_organization_2026-10-21_2026-10-27_20261027-2018.csv",
+    "endpoint": "/reports/activity",
+    "params": {
+      "format": "csv"
+    },
+    "status": 200,
+    "rows": "890",
+    "bytes": 133062,
+    "content_type": "text/csv; charset=utf-8"
+  },
+  {
+    "role": "HR",
+    "report": "activity",
+    "file": "organization_hr/activity_organization_2026-10-21_2026-10-27_20261027-2018.xlsx",
+    "endpoint": "/reports/activity",
+    "params": {
+      "format": "xlsx"
+    },
+    "status": 200,
+    "rows": "890",
+    "bytes": 39055,
+    "content_type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+  },
+  {
+    "role": "HR",
+    "report": "activity",
+    "file": "organization_hr/activity_organization_2026-10-21_2026-10-27_20261027-2018.pdf",
+    "endpoint": "/reports/activity",
+    "params": {
+      "format": "pdf"
+    },
+    "status": 200,
+    "rows": "890",
+    "bytes": 47447,
+    "content_type": "application/pdf"
+  },
+  {
+    "role": "HR",
+    "report": "audit_log",
+    "file": "organization_hr/audit-log_organization_2026-09-27_2026-10-27_20261027-2018.csv",
+    "endpoint": "/audit-logs/export",
+    "params": {
+      "format": "csv",
+      "date_from": "2026-09-27",
+      "date_to": "2026-10-27"
+    },
+    "status": 200,
+    "rows": "145",
+    "bytes": 24767,
+    "content_type": "text/csv; charset=utf-8"
+  },
+  {
+    "role": "HR",
+    "report": "audit_log",
+    "file": "organization_hr/audit-log_organization_2026-09-27_2026-10-27_20261027-2018.pdf",
+    "endpoint": "/audit-logs/export",
+    "params": {
+      "format": "pdf",
+      "date_from": "2026-09-27",
+      "date_to": "2026-10-27"
+    },
+    "status": 200,
+    "rows": "146",
+    "bytes": 10193,
+    "content_type": "application/pdf"
+  },
+  {
+    "role": "MANAGER",
+    "report": "employees",
+    "file": "department_manager/employees_department-2_20261027-2018.csv",
+    "endpoint": "/reports/employees",
+    "params": {
+      "format": "csv"
+    },
+    "status": 200,
+    "rows": "7",
+    "bytes": 555,
+    "content_type": "text/csv; charset=utf-8"
+  },
+  {
+    "role": "MANAGER",
+    "report": "attendance",
+    "file": "department_manager/attendance_department-2_2026-09-27_2026-10-27_20261027-2018.csv",
+    "endpoint": "/reports/attendance",
+    "params": {
+      "format": "csv",
+      "date_from": "2026-09-27",
+      "date_to": "2026-10-27"
+    },
+    "status": 200,
+    "rows": "149",
+    "bytes": 16406,
+    "content_type": "text/csv; charset=utf-8"
+  },
+  {
+    "role": "MANAGER",
+    "report": "leave",
+    "file": "department_manager/leave_department-2_2026-10-27_2026-12-11_20261027-2018.csv",
+    "endpoint": "/reports/leave",
+    "params": {
+      "format": "csv",
+      "date_from": "2026-10-27",
+      "date_to": "2026-12-11"
+    },
+    "status": 200,
+    "rows": "2",
+    "bytes": 352,
+    "content_type": "text/csv; charset=utf-8"
+  },
+  {
+    "role": "MANAGER",
+    "report": "attrition",
+    "file": "department_manager/attrition_department-2_20261027-2018.csv",
+    "endpoint": "/reports/attrition",
+    "params": {
+      "format": "csv"
+    },
+    "status": 200,
+    "rows": "1",
+    "bytes": 272,
+    "content_type": "text/csv; charset=utf-8"
+  },
+  {
+    "role": "MANAGER",
+    "report": "workforce",
+    "file": "department_manager/workforce_department-2_2025-11-01_2026-10-27_20261027-2018.csv",
+    "endpoint": "/reports/workforce",
+    "params": {
+      "format": "csv"
+    },
+    "status": 200,
+    "rows": "12",
+    "bytes": 580,
+    "content_type": "text/csv; charset=utf-8"
+  },
+  {
+    "role": "MANAGER",
+    "report": "activity",
+    "file": "department_manager/activity_department-2_2026-10-21_2026-10-27_20261027-2018.csv",
+    "endpoint": "/reports/activity",
+    "params": {
+      "format": "csv"
+    },
+    "status": 200,
+    "rows": "445",
+    "bytes": 66480,
+    "content_type": "text/csv; charset=utf-8"
+  },
+  {
+    "role": "MANAGER",
+    "report": "payroll",
+    "status": 403,
+    "note": "Refused: payroll exports are ADMIN/HR only"
+  }
+]

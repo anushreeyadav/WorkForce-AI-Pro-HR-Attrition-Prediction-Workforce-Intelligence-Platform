@@ -1,0 +1,69 @@
+{
+  "request": {
+    "method": "GET",
+    "path": "/api/datasets/1/validation",
+    "as": "HR"
+  },
+  "status": 200,
+  "response": {
+    "dataset_id": 1,
+    "version_number": 1,
+    "status": "VALIDATED",
+    "training_eligible": true,
+    "report": {
+      "schema_version": "attrition-features-v1",
+      "validated_at": "2026-10-27T14:44:56.362968+00:00",
+      "rows_total": 600,
+      "columns": [
+        "tenure_months",
+        "late_rate_90d",
+        "avg_overtime_minutes_90d",
+        "recorded_absence_days_90d",
+        "attendance_days_recorded_90d",
+        "department",
+        "attrited"
+      ],
+      "fatal_errors": [],
+      "warnings": [],
+      "rows_valid": 600,
+      "rows_invalid": 0,
+      "missing_by_feature": {
+        "tenure_months": 0,
+        "late_rate_90d": 60,
+        "avg_overtime_minutes_90d": 0,
+        "recorded_absence_days_90d": 0,
+        "attendance_days_recorded_90d": 0,
+        "department": 0
+      },
+      "not_numeric_by_feature": {
+        "tenure_months": 0,
+        "late_rate_90d": 0,
+        "avg_overtime_minutes_90d": 0,
+        "recorded_absence_days_90d": 0,
+        "attendance_days_recorded_90d": 0
+      },
+      "out_of_range_by_feature": {
+        "tenure_months": 0,
+        "late_rate_90d": 0,
+        "avg_overtime_minutes_90d": 0,
+        "recorded_absence_days_90d": 0,
+        "attendance_days_recorded_90d": 0
+      },
+      "invalid_category_by_feature": {
+        "department": 0
+      },
+      "unknown_category_by_feature": {
+        "department": 0
+      },
+      "duplicate_rows": 0,
+      "distinct_valid_rows": 600,
+      "target_distribution": {
+        "0": 249,
+        "1": 351
+      },
+      "row_errors": [],
+      "row_error_total": 0,
+      "training_eligible": true
+    }
+  }
+}

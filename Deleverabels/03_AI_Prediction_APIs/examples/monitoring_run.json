@@ -1,0 +1,24 @@
+{
+  "request": {
+    "method": "POST",
+    "path": "/api/risk-monitoring/run",
+    "as": "HR",
+    "json": {}
+  },
+  "status": 200,
+  "response": {
+    "examined_employees": 14,
+    "predictions_considered": 15,
+    "new_events": 0,
+    "alerts_created": 0,
+    "alerts_updated": 0,
+    "skipped": {
+      "no_prediction": 1,
+      "incompatible_model": 0
+    },
+    "stale_predictions": 0,
+    "next_after_employee_id": null,
+    "active_model_available": true,
+    "note": "Risk alerts are review aids based on statistical estimates. They are not proof of an employee's intentions and must not be the basis for any automatic employment decision."
+  }
+}

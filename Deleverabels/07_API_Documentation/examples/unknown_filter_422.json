@@ -1,0 +1,23 @@
+{
+  "request": {
+    "method": "GET",
+    "path": "/api/tasks",
+    "as": "HR",
+    "query": {
+      "bogus": "1"
+    }
+  },
+  "status": 422,
+  "response": {
+    "detail": [
+      {
+        "type": "extra_forbidden",
+        "loc": [
+          "query",
+          "bogus"
+        ],
+        "msg": "Extra inputs are not permitted"
+      }
+    ]
+  }
+}

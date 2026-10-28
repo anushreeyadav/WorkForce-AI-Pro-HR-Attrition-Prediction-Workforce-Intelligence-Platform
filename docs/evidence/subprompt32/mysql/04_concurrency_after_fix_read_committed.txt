@@ -1,0 +1,78 @@
+# AFTER the fixes (READ COMMITTED isolation; deadlock/lock-timeout -> 409 mapping; sign-in writes the account row before the audit row). Disposable MySQL 8.0.46. 2026-10-28T04:32:38Z
+# Command: python -m pytest -s -rA tests/test_mysql_concurrency.py (WFAI_MYSQL_TEST_URL / WFAI_MYSQL_TEST_MARKER set; app user has DML privileges only)
+# Admin-race outcome keys: '409 At least one active administrator must remain' = serialized by the guard's row locks; '409 The request conflicted with a concurrent change' = InnoDB deadlock victim mapped by app.main; '401 Invalid or expired token' = the loser authenticated after the winner had already ended its sessions.
+## repetition 1
+admin race outcomes: {('200', '401 Invalid or expired token'): 1, ('200', '409 At least one active administrator must remain'): 5, ('200', '409 The request conflicted with a concurrent change. Please retry.'): 2}
+forced interleaving outcomes: {('200', '409 At least one active administrator must remain'): 2, ('200', '409 The request conflicted with a concurrent change. Please retry.'): 2}
+PASSED tests/test_mysql_concurrency.py::test_live_schema_matches_the_models
+PASSED tests/test_mysql_concurrency.py::test_readiness_on_the_migrated_database
+PASSED tests/test_mysql_concurrency.py::test_timestamps_keep_microseconds
+PASSED tests/test_mysql_concurrency.py::test_utf8mb4_text_round_trips
+PASSED tests/test_mysql_concurrency.py::test_two_admins_cannot_remove_each_other_concurrently
+PASSED tests/test_mysql_concurrency.py::test_overlapping_leave_requests_create_exactly_one
+PASSED tests/test_mysql_concurrency.py::test_first_leave_requests_race_creates_one_balance
+PASSED tests/test_mysql_concurrency.py::test_duplicate_registration_creates_one_account
+PASSED tests/test_mysql_concurrency.py::test_stale_version_race_has_one_winner
+PASSED tests/test_mysql_concurrency.py::test_last_admin_guard_under_forced_lock_interleaving
+PASSED tests/test_mysql_concurrency.py::test_concurrent_sign_ins_of_one_account_do_not_deadlock
+11 passed, 1 warning in 10.59s
+## repetition 2
+admin race outcomes: {('200', '401 Invalid or expired token'): 1, ('200', '409 At least one active administrator must remain'): 7}
+forced interleaving outcomes: {('200', '409 The request conflicted with a concurrent change. Please retry.'): 2, ('200', '409 At least one active administrator must remain'): 2}
+PASSED tests/test_mysql_concurrency.py::test_live_schema_matches_the_models
+PASSED tests/test_mysql_concurrency.py::test_readiness_on_the_migrated_database
+PASSED tests/test_mysql_concurrency.py::test_timestamps_keep_microseconds
+PASSED tests/test_mysql_concurrency.py::test_utf8mb4_text_round_trips
+PASSED tests/test_mysql_concurrency.py::test_two_admins_cannot_remove_each_other_concurrently
+PASSED tests/test_mysql_concurrency.py::test_overlapping_leave_requests_create_exactly_one
+PASSED tests/test_mysql_concurrency.py::test_first_leave_requests_race_creates_one_balance
+PASSED tests/test_mysql_concurrency.py::test_duplicate_registration_creates_one_account
+PASSED tests/test_mysql_concurrency.py::test_stale_version_race_has_one_winner
+PASSED tests/test_mysql_concurrency.py::test_last_admin_guard_under_forced_lock_interleaving
+PASSED tests/test_mysql_concurrency.py::test_concurrent_sign_ins_of_one_account_do_not_deadlock
+11 passed, 1 warning in 10.57s
+## repetition 3
+admin race outcomes: {('200', '401 Invalid or expired token'): 1, ('200', '409 At least one active administrator must remain'): 6, ('200', '409 The request conflicted with a concurrent change. Please retry.'): 1}
+forced interleaving outcomes: {('200', '409 At least one active administrator must remain'): 3, ('200', '409 The request conflicted with a concurrent change. Please retry.'): 1}
+PASSED tests/test_mysql_concurrency.py::test_live_schema_matches_the_models
+PASSED tests/test_mysql_concurrency.py::test_readiness_on_the_migrated_database
+PASSED tests/test_mysql_concurrency.py::test_timestamps_keep_microseconds
+PASSED tests/test_mysql_concurrency.py::test_utf8mb4_text_round_trips
+PASSED tests/test_mysql_concurrency.py::test_two_admins_cannot_remove_each_other_concurrently
+PASSED tests/test_mysql_concurrency.py::test_overlapping_leave_requests_create_exactly_one
+PASSED tests/test_mysql_concurrency.py::test_first_leave_requests_race_creates_one_balance
+PASSED tests/test_mysql_concurrency.py::test_duplicate_registration_creates_one_account
+PASSED tests/test_mysql_concurrency.py::test_stale_version_race_has_one_winner
+PASSED tests/test_mysql_concurrency.py::test_last_admin_guard_under_forced_lock_interleaving
+PASSED tests/test_mysql_concurrency.py::test_concurrent_sign_ins_of_one_account_do_not_deadlock
+11 passed, 1 warning in 10.88s
+## repetition 4
+admin race outcomes: {('200', '401 Invalid or expired token'): 1, ('200', '409 At least one active administrator must remain'): 7}
+forced interleaving outcomes: {('200', '409 At least one active administrator must remain'): 3, ('200', '409 The request conflicted with a concurrent change. Please retry.'): 1}
+PASSED tests/test_mysql_concurrency.py::test_live_schema_matches_the_models
+PASSED tests/test_mysql_concurrency.py::test_readiness_on_the_migrated_database
+PASSED tests/test_mysql_concurrency.py::test_timestamps_keep_microseconds
+PASSED tests/test_mysql_concurrency.py::test_utf8mb4_text_round_trips
+PASSED tests/test_mysql_concurrency.py::test_two_admins_cannot_remove_each_other_concurrently
+PASSED tests/test_mysql_concurrency.py::test_overlapping_leave_requests_create_exactly_one
+PASSED tests/test_mysql_concurrency.py::test_first_leave_requests_race_creates_one_balance
+PASSED tests/test_mysql_concurrency.py::test_duplicate_registration_creates_one_account
+PASSED tests/test_mysql_concurrency.py::test_stale_version_race_has_one_winner
+PASSED tests/test_mysql_concurrency.py::test_last_admin_guard_under_forced_lock_interleaving
+PASSED tests/test_mysql_concurrency.py::test_concurrent_sign_ins_of_one_account_do_not_deadlock
+11 passed, 1 warning in 10.80s
+## repetition 5
+admin race outcomes: {('200', '401 Invalid or expired token'): 1, ('200', '409 At least one active administrator must remain'): 7}
+forced interleaving outcomes: {('200', '409 The request conflicted with a concurrent change. Please retry.'): 4}
+PASSED tests/test_mysql_concurrency.py::test_live_schema_matches_the_models
+PASSED tests/test_mysql_concurrency.py::test_readiness_on_the_migrated_database
+PASSED tests/test_mysql_concurrency.py::test_timestamps_keep_microseconds
+PASSED tests/test_mysql_concurrency.py::test_utf8mb4_text_round_trips
+PASSED tests/test_mysql_concurrency.py::test_two_admins_cannot_remove_each_other_concurrently
+PASSED tests/test_mysql_concurrency.py::test_overlapping_leave_requests_create_exactly_one
+PASSED tests/test_mysql_concurrency.py::test_first_leave_requests_race_creates_one_balance
+PASSED tests/test_mysql_concurrency.py::test_duplicate_registration_creates_one_account
+PASSED tests/test_mysql_concurrency.py::test_stale_version_race_has_one_winner
+PASSED tests/test_mysql_concurrency.py::test_last_admin_guard_under_forced_lock_interleaving
+PASSED tests/test_mysql_concurrency.py::test_concurrent_sign_ins_of_one_account_do_not_deadlock
+11 passed, 1 warning in 10.92s

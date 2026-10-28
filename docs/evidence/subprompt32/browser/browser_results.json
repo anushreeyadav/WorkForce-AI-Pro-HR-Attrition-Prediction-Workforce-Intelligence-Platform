@@ -1,0 +1,201 @@
+{
+  "generated_at": "2026-10-28T09:28:13+0530",
+  "browser": "Edg/155.0.4283.62",
+  "app": "http://127.0.0.1:4173",
+  "database": "sqlite",
+  "csp_header": "default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'",
+  "passed": 17,
+  "failed": 0,
+  "csp_violations": [],
+  "api_5xx_responses": [],
+  "uncaught_page_errors": [],
+  "results": [
+    {
+      "test": "t01_invalid_credentials",
+      "status": "PASS",
+      "seconds": 2.6,
+      "error": null,
+      "evidence": [
+        "screenshots/01_login_invalid_credentials.png"
+      ],
+      "page_errors": []
+    },
+    {
+      "test": "t02_login_logout_revokes_token",
+      "status": "PASS",
+      "seconds": 4.9,
+      "error": null,
+      "evidence": [
+        "screenshots/02_employee_dashboard.png",
+        "API check: the signed-out token now gets 401 (server-side revocation)"
+      ],
+      "page_errors": []
+    },
+    {
+      "test": "t03_expired_session",
+      "status": "PASS",
+      "seconds": 5.4,
+      "error": null,
+      "evidence": [
+        "API setup: ADMIN ended every session of the signed-in account",
+        "screenshots/03_session_ended.png"
+      ],
+      "page_errors": []
+    },
+    {
+      "test": "t04_role_navigation_and_forbidden_pages",
+      "status": "PASS",
+      "seconds": 21.6,
+      "error": null,
+      "evidence": [
+        "EMPLOYEE: 10 navigation items, none of ['Audit logs', 'Datasets', 'Payroll', 'Reports', 'Risk monitoring']",
+        "MANAGER: 17 navigation items, none of ['Datasets', 'Payroll']",
+        "HR: 19 navigation items, none of -",
+        "ADMIN: 19 navigation items, none of -",
+        "screenshots/04_employee_forbidden_audit.png",
+        "API check: the same EMPLOYEE gets 403 from GET /api/audit-logs"
+      ],
+      "page_errors": []
+    },
+    {
+      "test": "t05_employee_management",
+      "status": "PASS",
+      "seconds": 9.6,
+      "error": null,
+      "evidence": [
+        "screenshots/05_employee_created.png",
+        "API check: the new employee record exists (QA-NEW-01)"
+      ],
+      "page_errors": []
+    },
+    {
+      "test": "t06_attendance_check_in",
+      "status": "PASS",
+      "seconds": 7.3,
+      "error": null,
+      "evidence": [
+        "screenshots/06_checked_in.png"
+      ],
+      "page_errors": []
+    },
+    {
+      "test": "t07_leave_request_and_manager_approval",
+      "status": "PASS",
+      "seconds": 16.5,
+      "error": null,
+      "evidence": [
+        "screenshots/07a_leave_requested.png",
+        "screenshots/07b_leave_approved_by_manager.png"
+      ],
+      "page_errors": []
+    },
+    {
+      "test": "t08_payroll_calculate_and_approve",
+      "status": "PASS",
+      "seconds": 12.8,
+      "error": null,
+      "evidence": [
+        "screenshots/08_payroll_record_approved.png"
+      ],
+      "page_errors": []
+    },
+    {
+      "test": "t09_no_model_state_and_dataset_upload",
+      "status": "PASS",
+      "seconds": 11.7,
+      "error": null,
+      "evidence": [
+        "screenshots/09a_no_active_model.png",
+        "API check: prediction returns 503 no_active_model",
+        "screenshots/09b_dataset_validated.png"
+      ],
+      "page_errors": []
+    },
+    {
+      "test": "t10_model_activation_and_alerts",
+      "status": "PASS",
+      "seconds": 8.9,
+      "error": null,
+      "evidence": [
+        "API setup: synthetic model trained on the browser-uploaded dataset, activated, predictions and a monitoring run (alert threshold lowered for this QA server only)",
+        "screenshots/10_model_available.png"
+      ],
+      "page_errors": []
+    },
+    {
+      "test": "t11_risk_alert_to_intervention",
+      "status": "PASS",
+      "seconds": 12.9,
+      "error": null,
+      "evidence": [
+        "screenshots/11_intervention_from_alert.png"
+      ],
+      "page_errors": []
+    },
+    {
+      "test": "t12_performance_review",
+      "status": "PASS",
+      "seconds": 10.9,
+      "error": null,
+      "evidence": [
+        "screenshots/12_review_opened.png"
+      ],
+      "page_errors": []
+    },
+    {
+      "test": "t13_search_and_notifications",
+      "status": "PASS",
+      "seconds": 7.2,
+      "error": null,
+      "evidence": [
+        "screenshots/13a_search.png",
+        "screenshots/13b_notifications.png"
+      ],
+      "page_errors": []
+    },
+    {
+      "test": "t14_report_download",
+      "status": "PASS",
+      "seconds": 7.6,
+      "error": null,
+      "evidence": [
+        "downloaded employees_organization_20261028-0927.csv (730 bytes) from the 'Employee directory' report"
+      ],
+      "page_errors": []
+    },
+    {
+      "test": "t15_audit_logs",
+      "status": "PASS",
+      "seconds": 6.3,
+      "error": null,
+      "evidence": [
+        "screenshots/15_audit_logs.png"
+      ],
+      "page_errors": []
+    },
+    {
+      "test": "t16_change_password",
+      "status": "PASS",
+      "seconds": 16.4,
+      "error": null,
+      "evidence": [
+        "screenshots/16_password_changed_signed_out.png",
+        "signed in again with the new password"
+      ],
+      "page_errors": []
+    },
+    {
+      "test": "t17_mobile_viewport",
+      "status": "PASS",
+      "seconds": 23.1,
+      "error": null,
+      "evidence": [
+        "screenshots/17a_mobile_drawer.png",
+        "screenshots/17b_mobile_leave.png",
+        "screenshots/17c_mobile_hr_audit.png",
+        "no horizontal page overflow at 390 px: {\"/\": true, \"/leave\": true, \"/attendance\": true, \"/payslips\": true, \"/notifications\": true, \"/performance\": true, \"/employees\": true, \"/payroll\": true, \"/risk\": true, \"/reports\": true, \"/audit\": true}"
+      ],
+      "page_errors": []
+    }
+  ]
+}

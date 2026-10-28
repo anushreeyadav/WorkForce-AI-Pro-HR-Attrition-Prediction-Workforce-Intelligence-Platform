@@ -1,0 +1,196 @@
+{
+  "request": {
+    "method": "GET",
+    "path": "/api/ai/attrition/model-status",
+    "as": "HR"
+  },
+  "status": 200,
+  "response": {
+    "available": true,
+    "reason": null,
+    "active_model": {
+      "model_version": "lr-20261027144456-7b93f10b",
+      "feature_schema_version": "attrition-features-v1",
+      "status": "ACTIVE",
+      "trained_at": "2026-10-27T14:44:56.428229Z",
+      "training_rows": 600,
+      "dataset_fingerprint": "7b93f10b7b5670214affad2cbd7296a098453b7f98fb6bf8cfac6c6311577839",
+      "evaluation": {
+        "metrics": {
+          "decision_threshold": 0.5,
+          "precision": 0.9067,
+          "recall": 0.7727,
+          "f1": 0.8344,
+          "roc_auc": 0.9225,
+          "confusion_matrix": {
+            "tn": 55,
+            "fp": 7,
+            "fn": 20,
+            "tp": 68
+          }
+        },
+        "rows": {
+          "total": 600,
+          "train": 450,
+          "test": 150,
+          "duplicates_removed": 0
+        },
+        "class_balance": {
+          "positive_rate": 0.585
+        },
+        "imbalance_handling": "class_weight=balanced",
+        "evaluation": "stratified hold-out split",
+        "config": {
+          "random_state": 42,
+          "test_size": 0.25,
+          "min_rows": 50,
+          "min_class_count": 10,
+          "regularization_c": 1.0
+        },
+        "sklearn_version": "1.9.1",
+        "model_family": "logistic_regression",
+        "production_validated": false,
+        "dataset": {
+          "dataset_id": 1,
+          "version": 1,
+          "sha256": "d3374ec535c116659942e9e849ed21b2422c7c45535bd5e09ac3dc9699d87418"
+        }
+      },
+      "activated_at": "2026-10-27T14:44:56.560359Z",
+      "dataset_version_id": 1
+    },
+    "recent_models": [
+      {
+        "model_version": "lr-20261027144456-7b93f10b",
+        "feature_schema_version": "attrition-features-v1",
+        "status": "ACTIVE",
+        "trained_at": "2026-10-27T14:44:56.428229Z",
+        "training_rows": 600,
+        "dataset_fingerprint": "7b93f10b7b5670214affad2cbd7296a098453b7f98fb6bf8cfac6c6311577839",
+        "evaluation": {
+          "metrics": {
+            "decision_threshold": 0.5,
+            "precision": 0.9067,
+            "recall": 0.7727,
+            "f1": 0.8344,
+            "roc_auc": 0.9225,
+            "confusion_matrix": {
+              "tn": 55,
+              "fp": 7,
+              "fn": 20,
+              "tp": 68
+            }
+          },
+          "rows": {
+            "total": 600,
+            "train": 450,
+            "test": 150,
+            "duplicates_removed": 0
+          },
+          "class_balance": {
+            "positive_rate": 0.585
+          },
+          "imbalance_handling": "class_weight=balanced",
+          "evaluation": "stratified hold-out split",
+          "config": {
+            "random_state": 42,
+            "test_size": 0.25,
+            "min_rows": 50,
+            "min_class_count": 10,
+            "regularization_c": 1.0
+          },
+          "sklearn_version": "1.9.1",
+          "model_family": "logistic_regression",
+          "production_validated": false,
+          "dataset": {
+            "dataset_id": 1,
+            "version": 1,
+            "sha256": "d3374ec535c116659942e9e849ed21b2422c7c45535bd5e09ac3dc9699d87418"
+          }
+        },
+        "activated_at": "2026-10-27T14:44:56.560359Z",
+        "dataset_version_id": 1
+      }
+    ],
+    "feature_schema_version": "attrition-features-v1",
+    "feature_schema": [
+      {
+        "name": "tenure_months",
+        "kind": "numeric",
+        "nullable": false,
+        "minimum": 0,
+        "maximum": 600,
+        "description": "Whole months from date of joining to the prediction date",
+        "rationale": "Attrition risk commonly varies with tenure"
+      },
+      {
+        "name": "late_rate_90d",
+        "kind": "numeric",
+        "nullable": true,
+        "minimum": 0,
+        "maximum": 1,
+        "description": "Share of attended days (PRESENT/LATE/HALF_DAY) marked LATE in the last 90 days; null if none recorded",
+        "rationale": "Change in punctuality can reflect disengagement"
+      },
+      {
+        "name": "avg_overtime_minutes_90d",
+        "kind": "numeric",
+        "nullable": true,
+        "minimum": 0,
+        "maximum": 1440,
+        "description": "Mean overtime minutes per checked-out day in the last 90 days; null if none recorded",
+        "rationale": "Sustained overtime is associated with burnout"
+      },
+      {
+        "name": "recorded_absence_days_90d",
+        "kind": "numeric",
+        "nullable": false,
+        "minimum": 0,
+        "maximum": 90,
+        "description": "Attendance records explicitly marked ABSENT in the last 90 days (missing days are not absences)",
+        "rationale": "Explicitly recorded absence only"
+      },
+      {
+        "name": "attendance_days_recorded_90d",
+        "kind": "numeric",
+        "nullable": false,
+        "minimum": 0,
+        "maximum": 90,
+        "description": "Attendance records of any status in the last 90 days",
+        "rationale": "Data-coverage signal so sparse attendance data is not mistaken for behaviour"
+      },
+      {
+        "name": "department",
+        "kind": "categorical",
+        "nullable": true,
+        "minimum": null,
+        "maximum": null,
+        "description": "Department identifier (category)",
+        "rationale": "Team-level working conditions differ; job-related"
+      }
+    ],
+    "future_features": {
+      "performance_score_recent": "Requires a performance-review module (not implemented)",
+      "months_since_last_promotion": "Requires promotion history (not implemented)"
+    },
+    "risk_thresholds": {
+      "medium": 40.0,
+      "high": 70.0
+    },
+    "monitoring": {
+      "predictions_total": 13,
+      "predictions_by_category_active_model": {
+        "LOW": 9,
+        "MEDIUM": 2,
+        "HIGH": 2
+      },
+      "unavailable_requests_total": 0
+    },
+    "limitations": [
+      "Statistical estimate for HR decision support only; not a prediction of any individual's decision.",
+      "Associations in historical data are not causes.",
+      "Aggregate evaluation metrics do not guarantee accuracy for an individual.",
+      "Must not be used on its own for any employment decision."
+    ]
+  }
+}

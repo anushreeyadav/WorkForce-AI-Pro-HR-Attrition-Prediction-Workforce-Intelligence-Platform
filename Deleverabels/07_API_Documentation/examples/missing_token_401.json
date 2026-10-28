@@ -1,0 +1,11 @@
+{
+  "request": {
+    "method": "GET",
+    "path": "/api/employees",
+    "as": "anonymous"
+  },
+  "status": 401,
+  "response": {
+    "detail": "Not authenticated"
+  }
+}

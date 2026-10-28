@@ -1,0 +1,157 @@
+{
+  "request": {
+    "method": "GET",
+    "path": "/api/reports/catalog",
+    "as": "MANAGER"
+  },
+  "status": 200,
+  "response": {
+    "reports": [
+      {
+        "id": "employees",
+        "title": "Employee directory",
+        "description": "Employee code, name, department, designation, status and joining date. No contact details.",
+        "path": "/api/reports/employees",
+        "formats": [
+          "csv",
+          "xlsx",
+          "pdf"
+        ],
+        "filters": [
+          "format",
+          "department_id",
+          "status"
+        ],
+        "roles": [
+          "ADMIN",
+          "HR",
+          "MANAGER"
+        ],
+        "scope": "your department only"
+      },
+      {
+        "id": "attendance",
+        "title": "Attendance records",
+        "description": "Daily attendance records with check-in/out times and minutes. No notes.",
+        "path": "/api/reports/attendance",
+        "formats": [
+          "csv",
+          "xlsx",
+          "pdf"
+        ],
+        "filters": [
+          "format",
+          "date_from",
+          "date_to",
+          "department_id",
+          "status"
+        ],
+        "roles": [
+          "ADMIN",
+          "HR",
+          "MANAGER"
+        ],
+        "scope": "your department only"
+      },
+      {
+        "id": "leave",
+        "title": "Leave requests",
+        "description": "Leave requests overlapping the date range, with status and review times. No reasons or review comments.",
+        "path": "/api/reports/leave",
+        "formats": [
+          "csv",
+          "xlsx",
+          "pdf"
+        ],
+        "filters": [
+          "format",
+          "date_from",
+          "date_to",
+          "department_id",
+          "status"
+        ],
+        "roles": [
+          "ADMIN",
+          "HR",
+          "MANAGER"
+        ],
+        "scope": "your department only"
+      },
+      {
+        "id": "attrition",
+        "title": "AI risk indicators (aggregate)",
+        "description": "Counts of the latest stored risk estimate category and alert status per department. No individual scores or model features; your own record is excluded.",
+        "path": "/api/reports/attrition",
+        "formats": [
+          "csv",
+          "xlsx",
+          "pdf"
+        ],
+        "filters": [
+          "format",
+          "department_id"
+        ],
+        "roles": [
+          "ADMIN",
+          "HR",
+          "MANAGER"
+        ],
+        "scope": "your department only"
+      },
+      {
+        "id": "workforce",
+        "title": "Workforce trend",
+        "description": "Monthly snapshot headcount, joiners, recorded departures and turnover.",
+        "path": "/api/reports/workforce",
+        "formats": [
+          "csv",
+          "xlsx",
+          "pdf"
+        ],
+        "filters": [
+          "format",
+          "date_from",
+          "date_to",
+          "department_id"
+        ],
+        "roles": [
+          "ADMIN",
+          "HR",
+          "MANAGER"
+        ],
+        "scope": "your department only"
+      },
+      {
+        "id": "activity",
+        "title": "Workforce activity",
+        "description": "Activity feed items for a date window (same content as the activity feed).",
+        "path": "/api/reports/activity",
+        "formats": [
+          "csv",
+          "xlsx",
+          "pdf"
+        ],
+        "filters": [
+          "format",
+          "date_from",
+          "date_to",
+          "department_id",
+          "category",
+          "kind"
+        ],
+        "roles": [
+          "ADMIN",
+          "HR",
+          "MANAGER"
+        ],
+        "scope": "your department only"
+      }
+    ],
+    "limits": {
+      "max_rows": 5000,
+      "pdf_max_rows": 1000,
+      "max_range_days": 366
+    },
+    "note": "Reports larger than the limit are refused (422); narrow the filters instead."
+  }
+}

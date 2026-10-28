@@ -1,0 +1,4 @@
+﻿# npx oxlint (frontend lint). 2026-10-28T04:37:19Z
+# oxlint prints nothing when there are no findings and stdout is not a terminal; the exit code is the result.
+
+exit: 0

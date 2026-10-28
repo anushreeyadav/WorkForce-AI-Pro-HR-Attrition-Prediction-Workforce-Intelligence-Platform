@@ -1,0 +1,23 @@
+{
+  "request": {
+    "method": "GET",
+    "path": "/api/employees",
+    "as": "HR",
+    "query": {
+      "page_size": 1000
+    }
+  },
+  "status": 422,
+  "response": {
+    "detail": [
+      {
+        "type": "less_than_equal",
+        "loc": [
+          "query",
+          "page_size"
+        ],
+        "msg": "Input should be less than or equal to 100"
+      }
+    ]
+  }
+}

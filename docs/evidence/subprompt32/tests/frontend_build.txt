@@ -1,0 +1,44 @@
+﻿# npm run build (production build). 2026-10-28T04:37:19Z
+
+> frontend@0.0.0 build
+> vite build
+
+vite v8.3.5 building client environment for production...
+transforming...
+✓ 2606 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                            0.46 kB │ gzip:   0.30 kB
+dist/assets/index-BHCsvlL1.css            29.38 kB │ gzip:   6.45 kB
+dist/assets/check-CwatptoP.js              0.15 kB │ gzip:   0.15 kB
+dist/assets/plus-9xZRzNLY.js               0.18 kB │ gzip:   0.16 kB
+dist/assets/download-oCDhugFy.js           0.26 kB │ gzip:   0.21 kB
+dist/assets/pencil-C0uoeKGr.js             0.30 kB │ gzip:   0.24 kB
+dist/assets/links-BLLeHo9e.js              0.65 kB │ gzip:   0.32 kB
+dist/assets/useApi-BiWStx0k.js             0.80 kB │ gzip:   0.48 kB
+dist/assets/EmployeePicker-DBiPZHOr.js     0.88 kB │ gzip:   0.57 kB
+dist/assets/useList-D3xpE9bI.js            0.99 kB │ gzip:   0.52 kB
+dist/assets/Notifications-OYnlLB3F.js      2.46 kB │ gzip:   1.22 kB
+dist/assets/Reports-ohqOkLxj.js            2.99 kB │ gzip:   1.37 kB
+dist/assets/Search-DTNxDt3r.js             3.58 kB │ gzip:   1.66 kB
+dist/assets/Departments-BNeKiiPr.js        3.65 kB │ gzip:   1.58 kB
+dist/assets/Audit-CTmv8Oho.js              3.83 kB │ gzip:   1.74 kB
+dist/assets/Attendance-CjgG7C9k.js         5.76 kB │ gzip:   2.27 kB
+dist/assets/Risk-BoXG1eih.js               5.80 kB │ gzip:   2.29 kB
+dist/assets/Activity-BQs6d87F.js           7.46 kB │ gzip:   3.00 kB
+dist/assets/Recommendations-Bc-PsoR5.js    7.60 kB │ gzip:   2.93 kB
+dist/assets/Employees-SHwd4Q9I.js          7.99 kB │ gzip:   3.13 kB
+dist/assets/Leave-_uv4B0Dk.js              8.60 kB │ gzip:   2.98 kB
+dist/assets/Datasets-fc8Bu1qJ.js           8.73 kB │ gzip:   3.30 kB
+dist/assets/Interventions-2v0p3zHS.js     10.45 kB │ gzip:   3.65 kB
+dist/assets/Dashboard-CMAu-93h.js         10.91 kB │ gzip:   3.47 kB
+dist/assets/Tasks-BOvzfp5u.js             11.19 kB │ gzip:   3.99 kB
+dist/assets/Payroll-BHRzMY3C.js           13.63 kB │ gzip:   4.30 kB
+dist/assets/Analytics-D_Cdm87D.js         23.64 kB │ gzip:   7.93 kB
+dist/assets/Performance-UdStg5Di.js       24.59 kB │ gzip:   6.63 kB
+dist/assets/index-3uI429Zw.js            359.03 kB │ gzip: 116.15 kB
+dist/assets/CartesianChart-Ddf8Xd-i.js   373.12 kB │ gzip: 106.86 kB
+
+✓ built in 2.01s
+
+exit: 0

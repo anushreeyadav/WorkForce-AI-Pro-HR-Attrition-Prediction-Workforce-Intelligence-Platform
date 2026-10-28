@@ -1,0 +1,11 @@
+{
+  "request": {
+    "method": "GET",
+    "path": "/api/users",
+    "as": "HR"
+  },
+  "status": 403,
+  "response": {
+    "detail": "You do not have permission to perform this action"
+  }
+}

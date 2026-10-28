@@ -1,0 +1,23 @@
+Commands (cwd backend, placeholder DB_*/JWT_SECRET_KEY environment variables only; scripts read, no database contacted):
+> alembic heads
+c4e7a91d3f20 (head)
+Exit code: 0
+> alembic history
+a0bd1c34f49c -> c4e7a91d3f20 (head), token revocation: revoked_tokens table and users.token_version
+b647981f350c -> a0bd1c34f49c, recommendation engine v2: new enum values and nullable rules-v2 columns on recommendations
+0d5f1e6ae076 -> b647981f350c, performance management: cycles, goals, reviews and history
+818f279b6dde -> 0d5f1e6ae076, workforce tasks: tasks and task_events
+0bc0f8d45e33 -> 818f279b6dde, activity feed indexes: index-only, no table or column changes
+a6382858faa9 -> 0bc0f8d45e33, risk alert escalations: review-deadline escalation history
+87cc35d2de25 -> a6382858faa9, recommendations: rule-based recommendation review records
+70dd4dec2e60 -> 87cc35d2de25, hr interventions: interventions, intervention_events
+03f5784d8edc -> 70dd4dec2e60, workforce snapshots: workforce_snapshots, workforce_snapshot_departments
+66d767384f54 -> 03f5784d8edc, risk monitoring: risk_alerts, risk_events
+371a76ea7369 -> 66d767384f54, dataset registry: datasets, dataset_versions, attrition_model_versions.dataset_version_id
+a28868d7048a -> 371a76ea7369, attrition prediction: attrition_model_versions, attrition_predictions
+da1930de632b -> a28868d7048a, payroll: salary_components, payroll_profiles, payroll_profile_components, payroll_periods,
+payroll_records, payroll_line_items
+319083e42c0c -> da1930de632b, leave management and notifications: leave_types, leave_policies, leave_requests, leave_balances, notifications
+14cb546c9a5e -> 319083e42c0c, attendance and shifts: shifts, attendance_records
+<base> -> 14cb546c9a5e, initial core models: users, departments, employees, audit_logs
+Exit code: 0

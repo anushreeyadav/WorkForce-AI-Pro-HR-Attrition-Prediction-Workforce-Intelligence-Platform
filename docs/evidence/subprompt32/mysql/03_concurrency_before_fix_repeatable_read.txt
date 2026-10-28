@@ -1,0 +1,14 @@
+# BEFORE the isolation fix: MySQL default REPEATABLE READ. Disposable MySQL 8.0.46. 2026-10-27T15:54:35Z
+E   AssertionError: [201, 201, 409, 409]
+E   assert [201, 201, 409, 409] == [201, 409, 409, 409]
+E   AssertionError: [500, 500, 201, 500]
+E   assert [500, 500, 201, 500] == [201, 201, 201, 201]
+PASSED tests/test_mysql_concurrency.py::test_live_schema_matches_the_models
+PASSED tests/test_mysql_concurrency.py::test_timestamps_keep_microseconds
+PASSED tests/test_mysql_concurrency.py::test_utf8mb4_text_round_trips
+PASSED tests/test_mysql_concurrency.py::test_two_admins_cannot_remove_each_other_concurrently
+PASSED tests/test_mysql_concurrency.py::test_duplicate_registration_creates_one_account
+PASSED tests/test_mysql_concurrency.py::test_stale_version_race_has_one_winner
+FAILED tests/test_mysql_concurrency.py::test_overlapping_leave_requests_create_exactly_one
+FAILED tests/test_mysql_concurrency.py::test_first_leave_requests_race_creates_one_balance
+2 failed, 6 passed, 1 warning in 5.53s

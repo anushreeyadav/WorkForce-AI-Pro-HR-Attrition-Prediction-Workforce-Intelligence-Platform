@@ -1,0 +1,111 @@
+{
+  "request": {
+    "method": "GET",
+    "path": "/api/ai/attrition/history/13",
+    "as": "HR",
+    "query": {
+      "page_size": 2
+    }
+  },
+  "status": 200,
+  "response": {
+    "items": [
+      {
+        "id": 14,
+        "employee": {
+          "id": 13,
+          "employee_code": "EMP-401",
+          "full_name": "Jonas Weber",
+          "department_id": 4
+        },
+        "risk_score": "0.95",
+        "risk_category": "LOW",
+        "model_version": "lr-20261027144456-7b93f10b",
+        "feature_schema_version": "attrition-features-v1",
+        "predicted_at": "2026-10-27T14:49:04.300951Z",
+        "features": {
+          "tenure_months": 73,
+          "late_rate_90d": 0.0333,
+          "avg_overtime_minutes_90d": 13.43,
+          "recorded_absence_days_90d": 3,
+          "attendance_days_recorded_90d": 63,
+          "department": "4"
+        },
+        "factors": [
+          {
+            "feature": "late_rate_90d",
+            "direction": "lowers",
+            "weight": 2.8894
+          },
+          {
+            "feature": "avg_overtime_minutes_90d",
+            "direction": "lowers",
+            "weight": 2.6756
+          },
+          {
+            "feature": "attendance_days_recorded_90d",
+            "direction": "raises",
+            "weight": 0.5221
+          }
+        ],
+        "missing_inputs": [],
+        "limitations": [
+          "Statistical estimate for HR decision support only; not a prediction of any individual's decision.",
+          "Associations in historical data are not causes.",
+          "Aggregate evaluation metrics do not guarantee accuracy for an individual.",
+          "Must not be used on its own for any employment decision."
+        ]
+      },
+      {
+        "id": 12,
+        "employee": {
+          "id": 13,
+          "employee_code": "EMP-401",
+          "full_name": "Jonas Weber",
+          "department_id": 4
+        },
+        "risk_score": "0.95",
+        "risk_category": "LOW",
+        "model_version": "lr-20261027144456-7b93f10b",
+        "feature_schema_version": "attrition-features-v1",
+        "predicted_at": "2026-10-27T14:44:56.611932Z",
+        "features": {
+          "tenure_months": 73,
+          "late_rate_90d": 0.0333,
+          "avg_overtime_minutes_90d": 13.43,
+          "recorded_absence_days_90d": 3,
+          "attendance_days_recorded_90d": 63,
+          "department": "4"
+        },
+        "factors": [
+          {
+            "feature": "late_rate_90d",
+            "direction": "lowers",
+            "weight": 2.8894
+          },
+          {
+            "feature": "avg_overtime_minutes_90d",
+            "direction": "lowers",
+            "weight": 2.6756
+          },
+          {
+            "feature": "attendance_days_recorded_90d",
+            "direction": "raises",
+            "weight": 0.5221
+          }
+        ],
+        "missing_inputs": [],
+        "limitations": [
+          "Statistical estimate for HR decision support only; not a prediction of any individual's decision.",
+          "Associations in historical data are not causes.",
+          "Aggregate evaluation metrics do not guarantee accuracy for an individual.",
+          "Must not be used on its own for any employment decision."
+        ]
+      }
+    ],
+    "total": 2,
+    "page": 1,
+    "page_size": 2,
+    "pages": 1
+  }
+}

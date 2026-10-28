@@ -1,0 +1,3 @@
+﻿Employee code,Full name,Department,Leave type,Start date,End date,Working days,Status,Submitted at,Reviewed at,Cancelled at
+EMP-203,Ben Ortega,Engineering,ANNUAL,2026-11-16,2026-11-17,2,PENDING,2026-10-27T20:14:54+05:30,,
+EMP-202,Aisha Khan,Engineering,ANNUAL,2026-11-06,2026-11-09,2,APPROVED,2026-10-27T20:14:54+05:30,2026-10-27T20:14:54+05:30,

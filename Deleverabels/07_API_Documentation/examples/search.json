@@ -1,0 +1,50 @@
+{
+  "request": {
+    "method": "GET",
+    "path": "/api/search",
+    "as": "EMPLOYEE",
+    "query": {
+      "q": "migration"
+    }
+  },
+  "status": 200,
+  "response": {
+    "query": "migration",
+    "results": [
+      {
+        "type": "goal",
+        "id": 1,
+        "label": "Deliver the platform migration milestone",
+        "summary": {
+          "status": "IN_PROGRESS",
+          "progress_percent": 40,
+          "target_date": "2026-12-26"
+        },
+        "timestamp": "2026-10-27T14:44:57.366676Z",
+        "resource": "/api/performance/goals/1"
+      }
+    ],
+    "counts": {
+      "employee": 0,
+      "department": 0,
+      "task": 0,
+      "goal": 1,
+      "review_cycle": 0,
+      "performance_review": 0
+    },
+    "truncated_types": [],
+    "searched_types": [
+      "employee",
+      "department",
+      "task",
+      "goal",
+      "review_cycle",
+      "performance_review"
+    ],
+    "unavailable_types": [
+      "intervention",
+      "recommendation"
+    ],
+    "note": "Matches labels only (names, codes and titles), never descriptions, notes or review content. Payroll, audit logs, risk alerts, attendance, leave and datasets are not searched here; use their module endpoints."
+  }
+}

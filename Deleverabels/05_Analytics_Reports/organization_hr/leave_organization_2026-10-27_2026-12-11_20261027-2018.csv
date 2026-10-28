@@ -1,0 +1,5 @@
+﻿Employee code,Full name,Department,Leave type,Start date,End date,Working days,Status,Submitted at,Reviewed at,Cancelled at
+EMP-401,Jonas Weber,Finance,ANNUAL,2026-11-26,2026-11-30,3,PENDING,2026-10-27T20:14:54+05:30,,
+EMP-203,Ben Ortega,Engineering,ANNUAL,2026-11-16,2026-11-17,2,PENDING,2026-10-27T20:14:54+05:30,,
+EMP-202,Aisha Khan,Engineering,ANNUAL,2026-11-06,2026-11-09,2,APPROVED,2026-10-27T20:14:54+05:30,2026-10-27T20:14:54+05:30,
+EMP-302,George Mills,Sales,SICK,2026-10-30,2026-10-30,1,APPROVED,2026-10-27T20:14:54+05:30,2026-10-27T20:14:54+05:30,

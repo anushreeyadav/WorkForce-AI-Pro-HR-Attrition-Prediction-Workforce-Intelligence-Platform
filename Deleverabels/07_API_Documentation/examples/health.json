@@ -1,0 +1,11 @@
+{
+  "request": {
+    "method": "GET",
+    "path": "/api/health",
+    "as": "anonymous"
+  },
+  "status": 200,
+  "response": {
+    "status": "ok"
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "request": {
+    "method": "GET",
+    "path": "/api/users",
+    "as": "ADMIN",
+    "query": {
+      "page_size": 2
+    }
+  },
+  "status": 200,
+  "response": {
+    "items": [
+      {
+        "id": 1,
+        "full_name": "Priya Admin (demo)",
+        "email": "admin@example.com",
+        "role": "ADMIN",
+        "is_active": true,
+        "last_login_at": "2026-10-27T14:49:04.196584Z",
+        "created_at": "2026-10-27T14:44:47.860710Z",
+        "employee_id": null,
+        "employee_status": null
+      },
+      {
+        "id": 4,
+        "full_name": "Aisha Khan",
+        "email": "aisha.khan@example.com",
+        "role": "EMPLOYEE",
+        "is_active": true,
+        "last_login_at": "2026-10-27T14:49:03.947772Z",
+        "created_at": "2026-10-27T14:44:49.173166Z",
+        "employee_id": 3,
+        "employee_status": "ACTIVE"
+      }
+    ],
+    "total": 15,
+    "page": 1,
+    "page_size": 2,
+    "pages": 8
+  }
+}

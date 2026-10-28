@@ -1,0 +1,29 @@
+# Upgrade of the disposable MySQL 8.0.46 database to the new head (5b9e2d7c41a8, DATETIME(6)). 2026-10-27T15:51:25Z
+$ alembic current
+c4e7a91d3f20
+exit: 0
+
+$ alembic upgrade head
+INFO  [alembic.runtime.migration] Running upgrade c4e7a91d3f20 -> 5b9e2d7c41a8, mysql datetime microseconds: every timestamp column becomes DATETIME(6) on MySQL
+exit: 0
+
+$ alembic current
+5b9e2d7c41a8 (head)
+exit: 0
+
+$ alembic downgrade -1
+INFO  [alembic.runtime.migration] Running downgrade 5b9e2d7c41a8 -> c4e7a91d3f20, mysql datetime microseconds: every timestamp column becomes DATETIME(6) on MySQL
+exit: 0
+
+$ alembic current
+c4e7a91d3f20
+exit: 0
+
+$ alembic upgrade head
+INFO  [alembic.runtime.migration] Running upgrade c4e7a91d3f20 -> 5b9e2d7c41a8, mysql datetime microseconds: every timestamp column becomes DATETIME(6) on MySQL
+exit: 0
+
+$ alembic current
+5b9e2d7c41a8 (head)
+exit: 0
+

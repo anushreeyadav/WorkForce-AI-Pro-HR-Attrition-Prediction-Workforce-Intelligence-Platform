@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+.pytest_cache/
+
+# Environment
+.env
+*.env.local
+
+# Node
+node_modules/
+dist/
+
+# ML artifacts and datasets (never commit models, training data or employee data)
+backend/ml/models/*
+!backend/ml/models/.gitkeep
+backend/ml/datasets/
+
+# Editors / OS
+.vscode/
+.idea/
+Thumbs.db

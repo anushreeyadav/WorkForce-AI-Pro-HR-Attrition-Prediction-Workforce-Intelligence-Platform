@@ -1,0 +1,8 @@
+# focused_auth_authorization (SQLite mode). 2026-10-28T04:34:13Z
+# Command: python -m pytest -q -p no:cacheprovider tests/test_auth_api.py tests/test_account_security.py tests/test_authorization_matrix.py tests/test_rbac.py tests/test_security.py tests/test_production_hardening.py
+============================== warnings summary ===============================
+.venv\Lib\site-packages\fastapi\testclient.py:1
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+466 passed, 1 warning in 41.16s
+exit: 0
